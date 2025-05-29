@@ -8,14 +8,13 @@ const swiperList = [
 ];
 Page({
   data: {
-    current: 0,
     autoplay: true,
     duration: 500,
     interval: 5000,
 
     swiperList,
     selectedColor: 0,
-    colorset: ['#DEE676', "#DDB1AE", "#283C0A"],
+    colorset: ['#DEE676', "#aa0025", "#1a1d0d"],
     motto: 'Hello World',
     userInfo: {
       avatarUrl: defaultAvatarUrl,

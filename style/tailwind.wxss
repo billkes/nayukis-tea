@@ -1191,6 +1191,10 @@ page {
   margin-top: 400rpx;
 }
 
+.mt-700 {
+  margin-top: 700rpx;
+}
+
 .mr-0 {
   margin-right: 0;
 }
