@@ -14,6 +14,7 @@
     "pages/secondPages/student/student",
     "pages/secondPages/together/together",
     "pages/secondPages/address/address",
+    "pages/secondPages/editAddress/editAddress",
     "pages/secondPages/quan/quan",
     "pages/secondPages/hyqy/hyqy",
     "pages/secondPages/nxbsd/nxbsd",

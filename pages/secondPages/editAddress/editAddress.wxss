@@ -1,0 +1,2 @@
+/* pages/secondPages/editAddress/editAddress.wxss */
+@import "../../../style/tailwind.wxss";

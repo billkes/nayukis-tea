@@ -1,0 +1,54 @@
+<!--pages/secondPages/editAddress/editAddress.wxml-->
+
+<view class="h-screen bg-gray-100 px-10 py-10 box-border">
+  <form catchsubmit="formSubmit" catchreset="formReset">
+    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
+      <text class="">收货人</text>
+      <input value="{{consignee}}" bindinput="handleInputChange" data-fkey='consignee' class="text-right" name="consignee" placeholder="请输入收货人" />
+    </view>
+    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
+      <text class="">性别</text>
+      <view class="flex items-center">
+        <text>男女</text>
+        <t-icon name="plus" class="" size="40rpx" />
+      </view>
+    </view>
+    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
+      <text class="">手机号</text>
+      <input value="{{phone}}" bindinput="handleInputChange" data-fkey='phone' class="text-right" name="phone" placeholder="请输入手机号" />
+    </view>
+    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
+      <text class="">收货地址</text>
+      <view class="flex items-center">
+        <text>...</text>
+        <t-icon name="plus" class="" size="40rpx" />
+      </view>
+    </view>
+    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
+      <text class="">门牌号</text>
+      <input value="{{houseNumber}}" bindinput="handleInputChange" data-fkey='houseNumber' class="text-right" name="houseNumber" placeholder="请输入门牌号" />
+    </view>
+
+    <!-- 断行 -->
+    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-5'>
+      <text class="">标签</text>
+      <view>
+        <!-- <text  wx:for="{{list}}" wx:key="index" wx:for-item="item" class='mb-6 bg-white px-6 py-6 flex justify-between items-center'></text> -->
+        <view></view>
+      </view>
+    </view>
+    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
+      <text class="">设为默认地址</text>
+      <switch name="isDefault" />
+    </view>
+
+    <!-- 空盒子 -->
+    <view class="h-44"></view>
+
+    <!-- 提交按钮 -->
+    <button formType="submit" class="absolute bottom-10 left-10 right-10 bg-green-500 text-white flex justify-center items-center h-16 rounded-50">
+      <!-- <t-icon name="plus" class="" size="40rpx" /> -->
+      <text>保存</text>
+    </button>
+  </form>
+</view>

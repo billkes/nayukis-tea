@@ -1,18 +1,26 @@
 <!--pages/secondPages/address/address.wxml-->
 
 <view class="h-screen bg-gray-100 px-6 py-6 box-border">
+  <view class="text-sm flex-col flex items-center justify-center mt-40" wx:if="{{!list.length}}">
+    <image class="w-48" src="/static/images/empty-address.png" mode="widthFix" />
+    <text class="mt-10 text-gray-400">暂无地址信息</text>
+    <text class="mt-5 text-gray-400">请点击底部按钮添加地址信息</text>
+  </view>
   <view wx:for="{{list}}" wx:key="index" wx:for-item="item" class='mb-6 bg-white px-6 py-6 flex justify-between items-center'>
-    <view>
-      <view class="">{{item.title}}</view>
-      <text class="mt-2 text-sm text-gray-400">{{item.sex == '0' ? '女士' : '男士'}} {{item.phone}}</text>
+    <view class="flex-1" class="h-full" data-current="{{index}}" bind:tap="handleSelectAddress">
+      <view class="">{{item.deliveryAddress}}{{item.consignee}}</view>
+      <text class="mt-2 text-sm text-gray-400">{{item.houseNumber}} {{item.sex == '0' ? '女士' : '男士'}} {{item.phone}}</text>
     </view>
-    <view>
+    <view class="h-full w-auto" data-current="{{index}}" capture-bind:tap="handleEdit">
       <t-icon name="edit-2" class="mr-5 text-green-500" size="32rpx" />
     </view>
   </view>
 </view>
 
-<view class="absolute bottom-10 left-10 right-10 bg-green-500 text-white flex justify-center items-center h-16 rounded-50">
+<!-- 空盒子 -->
+<view class="h-44"></view>
+
+<navigator url="/pages/secondPages/editAddress/editAddress" open-type="navigate" class="absolute bottom-10 left-10 right-10 bg-green-500 text-white flex justify-center items-center h-16 rounded-50">
   <t-icon name="plus" class="" size="40rpx" />
   <text>新增地址</text>
-</view>
+</navigator>
