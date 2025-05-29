@@ -1,1 +1,2 @@
 /* pages/secondPages/address/address.wxss */
+@import "../../../style/tailwind.wxss";
