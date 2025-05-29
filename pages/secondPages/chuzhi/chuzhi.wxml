@@ -12,8 +12,8 @@
   </view>
 
   <!-- 主要内容 -->
-  <view>
-    <view wx:for="{{list}}" wx:key="index" wx:for-item="item" class='mb-6 bg-white px-6 py-6'>
+  <view class="px-10 mt-10">
+    <view wx:for="{{list}}" bind:tap="handleItemClick" wx:key="index" data-current="{{index}}" wx:for-item="item" class='border border-gray-300 border-solid rounded-lg mb-6 bg-white px-6 py-6 box-border {{current===index ? "border-error border-4": ""}}'>
       <view class="text-2xl">{{item.name}}</view>
       <view class="flex justify-between items-center">
         <text>{{item.desc}}</text>
@@ -25,5 +25,22 @@
     </view>
   </view>
 
+  <!-- 空盒子 -->
+  <view class="h-44"></view>
+
+
+  <!-- 底部按钮 -->
+  <view class="py-5 px-5 fixed box-border bottom-0 left-0 right-0 bg-white">
+    <t-radio block="{{false}}" label="" value="0" class="flex items-center">
+      <view slot="label" class="flex items-center pt-5">
+        <text>我已阅读并同意</text>
+        <text>《...》</text>
+      </view>
+    </t-radio>
+    <view class="mt-5 bg-orange-500 text-white flex justify-center items-center h-16 rounded-50">
+      <!-- <t-icon name="plus" class="" size="40rpx" /> -->
+      <text>立即储值</text>
+    </view>
+  </view>
 
 </view>

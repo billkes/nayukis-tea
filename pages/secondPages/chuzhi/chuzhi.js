@@ -6,12 +6,34 @@ Page({
    */
   data: {
     countDown: "",
-    list: [
-      {
+    current: 0,
+    list: [{
         name: '储值￥66',
         desc: '限时赠6元现金券'
       },
+      {
+        name: '储值￥100',
+        desc: '限时赠10元现金券'
+      },
+      {
+        name: '储值￥100',
+        desc: '限时赠10元现金券'
+      },
+      {
+        name: '储值￥100',
+        desc: '限时赠10元现金券'
+      },
     ],
+  },
+
+  handleItemClick(e) {
+    const {
+      current
+    } = e.currentTarget.dataset
+    console.log(e, current);
+    this.setData({
+      current: current
+    })
   },
 
   /**
