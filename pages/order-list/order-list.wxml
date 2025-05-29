@@ -1,7 +1,0 @@
-<!--pages/order-list/order-list.wxml-->
-<view class="w-screen h-screen bg-gray-200">
-<block wx:for="{{orderlist.orders}}" wx:key="index" pro="{{item}}">
-  <orderinfo info="{{item}}"></orderinfo>
-  <button wx:if="{{item.status === 'SUCCESS' && !item.isRefunded}}" style="width: 200px; height: 50px; background-color: blue;" bindtap="handleRefund" data-id="{{item.id}}" data-amount="{{item.amount}}">退款</button>
-</block>
-</view>

@@ -1,66 +1,63 @@
 <!--components/Card/Card.wxml-->
-
-<view class="h-12 flex py-6 mx-10 px-8 justify-between items-center shadow-md bg-opacity-70">
-  <!-- 跳转用户信息 -->
-  <navigator url="/pages/secondPages/quan/quan" open-type="navigate" >
-    <text class="text-sm text-gray-900 font-bold ">Hi,x.</text>
-  </navigator>
-  <!-- 奈雪券 -->
-  <navigator url="/pages/secondPages/quan/quan" open-type="navigate" class="flex flex-col items-center ">
-    <view class="text-xs text-gray-900">奈雪券</view>
-    <view class="text-xs text-gray-900 font-bold">0 <text class="text-sm">张</text> </view>
-  </navigator>
-</view>
-
 <view class="relative z-20">
-  <view class="w-170 h-64 flex justify-around py-6 mx-10 bg-white shadow-md ">
-    <view>
-      <!-- 自取 -->
-      <view class="flex">
-        <navigator url="/pages/order/order" open-type="switchTab" class="flex ml-3">
-          <image src="/static/icons/ziqu.png" class="w-16 h-24 pt-0 mt-8 ml-3"></image>
-          <text class="text-gray-900 text-2xl font-bold mt-10 ml-4">自取</text>
-          <view class="mt-20 pl-8 pt-2">
-            <text class="text-sm text-gray-600 -ml-30 ">周二V2免费升杯</text>
-          </view>
-        </navigator>
-        <view class="h-24 bg-gray-200 w-1 mt-8 ml-10">
+
+  <view class="h-12 flex py-6 mx-10 px-8 justify-between items-center shadow-md bg-opacity-70 ">
+    <!-- 跳转用户信息 -->
+    <navigator url="/pages/secondPages/quan/quan" open-type="navigate">
+      <text class="text-sm text-gray-900 font-bold ">Hi,x.</text>
+    </navigator>
+    <!-- 奈雪券 -->
+    <navigator url="/pages/secondPages/quan/quan" open-type="navigate" class="flex flex-col items-center ">
+      <view class="text-xs text-gray-900">奈雪券</view>
+      <view class="text-xs text-gray-900 font-bold">0 <text class="text-sm">张</text> </view>
+    </navigator>
+  </view>
+
+  <view class="w-170 h-64 py-6 mx-10 bg-white shadow-md ">
+    <!-- 自取 -->
+    <view class="flex">
+      <navigator url="/pages/order/order" open-type="switchTab" class="flex ml-3">
+        <image src="/static/icons/ziqu.png" class="w-16 h-24 pt-0 mt-8 ml-3"></image>
+        <text class="text-gray-900 text-2xl font-bold mt-10 ml-4">自取</text>
+        <view class="mt-20 pl-8 pt-2">
+          <text class="text-sm text-gray-600 -ml-30 ">周二V2免费升杯</text>
         </view>
-
-        <!-- 外卖 -->
-        <navigator url="/pages/secondPages/address/address" open-type="navigate" class="flex">
-          <image src="/static/icons/waimai.png" class="w-24 h-24 m-1 mt-8 ml-10"></image>
-          <text class=" text-gray-900 text-2xl font-bold mt-10">外卖</text>
-          <view class="mt-20 pl-8 pt-2 -ml-0">
-            <text class="text-sm text-gray-600 -ml-30">周三会员日秒杀</text>
-          </view>
-        </navigator>
-
+      </navigator>
+      <view class="h-24 bg-gray-200 w-1 mt-8 ml-10">
       </view>
 
-      <view class="h-1 bg-gray-200 w-full mt-10"></view>
+      <!-- 外卖 -->
+      <navigator url="/pages/secondPages/address/address" open-type="navigate" class="flex">
+        <image src="/static/icons/waimai.png" class="w-24 h-24 m-1 mt-8 ml-10"></image>
+        <text class=" text-gray-900 text-2xl font-bold mt-10">外卖</text>
+        <view class="mt-20 pl-8 pt-2 -ml-0">
+          <text class="text-sm text-gray-600 -ml-30">周三会员日秒杀</text>
+        </view>
+      </navigator>
 
-      <view class="w-160 mx-auto my-10">
-        <scroll-view scroll-x class="whitespace-nowrap -mt-3">
-
-          <navigator url="/pages/secondPages/chuzhi/chuzhi" open-type="navigate" class="ml-0 flex justify-between items-center pl-2 text-sm inline-block">储值有礼</navigator>
-
-          <navigator url="/pages/secondPages/huiyuanqun/huiyuanqun" open-type="navigate" class="ml-30 flex justify-between items-center pl-6 my-0 text-sm inline-block">加入会员群</navigator>
-
-          <navigator url="/pages/secondPages/hehuoren/hehuoren" open-type="navigate" class="ml-30 flex justify-between items-center pl-8 my-0 text-sm inline-block">成为合伙人</navigator>
-
-          <navigator url="/pages/secondPages/qiyepindan/qiyepindan" open-type="navigate" class="ml-30 flex justify-between items-center pl-1 my-0 text-sm inline-block">企业拼单</navigator>
-
-          <navigator url="/pages/secondPages/shangcheng/shangcheng" open-type="navigate" class="ml-30 flex justify-between items-center pl-10 my-0 text-sm inline-block">奈雪商城</navigator>
-
-          <navigator url="/pages/secondPages/lipinka/lipinka" open-type="navigate" class="ml-30 flex justify-between items-center pl-10 my-0 text-sm inline-block">礼品卡</navigator>
-
-          <navigator url="/pages/secondPages/student/student" open-type="navigate" class="ml-30 pr-10 flex justify-between items-center pl-10 my-0 text-sm inline-block">学生有礼</navigator>
-
-          <navigator url="/pages/secondPages/together/together" open-type="navigate" class="ml-30 flex justify-between items-center pl-3 my-0 text-sm pr-10 inline-block">一起喝</navigator>
-        </scroll-view>
-      </view>
     </view>
 
+    <view class="h-1 bg-gray-200 w-full mt-10"></view>
+
+    <view class="w-160 mx-auto my-10">
+      <scroll-view scroll-x class="whitespace-nowrap -mt-3">
+
+        <navigator url="/pages/secondPages/chuzhi/chuzhi" open-type="navigate" class="ml-0 flex justify-between items-center pl-2 text-sm inline-block">储值有礼</navigator>
+
+        <navigator url="/pages/secondPages/huiyuanqun/huiyuanqun" open-type="navigate" class="ml-30 flex justify-between items-center pl-6 my-0 text-sm inline-block">加入会员群</navigator>
+
+        <navigator url="/pages/secondPages/hehuoren/hehuoren" open-type="navigate" class="ml-30 flex justify-between items-center pl-8 my-0 text-sm inline-block">成为合伙人</navigator>
+
+        <navigator url="/pages/secondPages/qiyepindan/qiyepindan" open-type="navigate" class="ml-30 flex justify-between items-center pl-1 my-0 text-sm inline-block">企业拼单</navigator>
+
+        <navigator url="/pages/secondPages/shangcheng/shangcheng" open-type="navigate" class="ml-30 flex justify-between items-center pl-10 my-0 text-sm inline-block">奈雪商城</navigator>
+
+        <navigator url="/pages/secondPages/lipinka/lipinka" open-type="navigate" class="ml-30 flex justify-between items-center pl-10 my-0 text-sm inline-block">礼品卡</navigator>
+
+        <navigator url="/pages/secondPages/student/student" open-type="navigate" class="ml-30 pr-10 flex justify-between items-center pl-10 my-0 text-sm inline-block">学生有礼</navigator>
+
+        <navigator url="/pages/secondPages/together/together" open-type="navigate" class="ml-30 flex justify-between items-center pl-3 my-0 text-sm pr-10 inline-block">一起喝</navigator>
+      </scroll-view>
+    </view>
   </view>
 </view>

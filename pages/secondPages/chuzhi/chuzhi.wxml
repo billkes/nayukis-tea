@@ -1,9 +1,29 @@
 <!--pages/secondPages/chuzhi/chuzhi.wxml-->
-<view class="w-screen h-screen">
+<view class="">
   <!-- 顶部背景图片 -->
-  <image 
-    src="/static/images/cz.jpg" 
-    mode="aspectFill" 
-    class="w-full h-180"
-  />
+  <view class="relative">
+    <image src="/static/images/cz.jpg" mode="widthFix" class="w-full" />
+
+
+    <view class="absolute bottom-0 left-10 right-10 px-5 bg-white h-12 py-2 flex justify-between items-center text-sm rounded-t-lg">
+      <view>账户余额 <text class="underline">￥0</text></view>
+      <text class="text-green-500">距结束还剩：{{countDown}}</text>
+    </view>
   </view>
+
+  <!-- 主要内容 -->
+  <view>
+    <view wx:for="{{list}}" wx:key="index" wx:for-item="item" class='mb-6 bg-white px-6 py-6'>
+      <view class="text-2xl">{{item.name}}</view>
+      <view class="flex justify-between items-center">
+        <text>{{item.desc}}</text>
+        <view class="text-green-500">
+          <text class="text-sm">权益详情</text>
+          <t-icon name="chevron-right" class="" size="32rpx" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

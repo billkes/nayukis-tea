@@ -22,11 +22,10 @@
     "pages/secondPages/nxbqd/nxbqd",
     "pages/secondPages/two/two",
     "pages/secondPages/three/three",
-    "pages/secondPages/five/five",
     "pages/secondPages/six/six",
+    "pages/secondPages/five/five",
     "pages/secondPages/menu/menu",
-    "pages/cat/cat",
-    "pages/trolley/trolley"
+    "pages/cat/cat"
   ],
   "window": {
     "navigationBarTextStyle": "black",
