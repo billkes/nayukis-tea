@@ -1,0 +1,62 @@
+<!--components/lineCard/lineCard.wxml-->
+<view class="relative z-20">
+ <view class="-mt-40">
+ <view class="w-180 h-48 flex justify-between my-1 py-4 mx-auto bg-white rounded-lg shadow-md">
+
+ <!-- 每周特权 -->
+<view class="flex flex-col px-8 pt-2">
+  <navigator url="/pages/secondPages/nxbsd/nxbsd"  open-type="redirect"><text class="text-lg h-12 text-gray-900 font-bold mt-10">每周特权</text></navigator>
+
+<!-- 您已解锁7项特权 -->
+ <navigator url="/pages/secondPages/hyqy/hyqy"  open-type="redirect" class="flex flex-col items-center ml-50 pl-10">
+   <!--<image src="/static/icons/user.png" class="w-12 h-12 m-4"></image> -->
+     <text class="text-sm text-gray-900 -mt-20 pt-10 ml-10 pl-10">您已解锁7项特权></text>
+ </navigator>
+<navigator url="/pages/secondPages/nxbsd/nxbsd" open-type="redirect">
+     <image src="/static/images/qq.jpg" class="w-160 h-32">
+     </image>
+</navigator>
+ </view>
+
+
+ </view>
+</view>
+</view>
+
+
+<view class="relative z-20">
+<!-- 会员专区 -->
+<view class="w-180 h-0 px-0 bg-white mx-auto py-0 my-5 mb-0 rounded-md pt-6 ">
+     <!-- <image src="/static/icons/user.png" class="w-12 h-12 m-4"></image> -->
+     <text class="text-lg text-gray-900 font-bold pl-8">会员专区</text>
+ </view>
+ <view class="w-180 h-64 flex justify-around items-center pb-0 mx-auto bg-white rounded-md shadow-md">
+ <!-- 加入社群 -->
+ <navigator url="/pages/secondPages/huiyuanqun/huiyuanqun"  open-type="redirect" class="flex flex-col items-center py-3 -mb-10">
+     <t-icon name="/static/icons/huiyuan1.png" class="w-16 h-24 m-3  text-4xl text-green-500"></t-icon>
+     <!-- <image src="/static/icons/user.png" class="w-5 h-5 m-4"></image> -->
+     <text class="text-sm text-gray-900 font-bold -mt-2">加入社群</text>
+ </navigator>
+
+ <!-- 奈雪币商店 -->
+ <navigator url="/pages/secondPages/nxly/nxly"  open-type="redirect"  class="flex flex-col items-center -mb-10">
+     <t-icon name="/static/icons/huiyuan2.png" class="w-16 h-24 m-3 text-4xl text-orange-500"></t-icon>
+     <text class="text-sm text-gray-900 font-bold -mt-2">奈雪币商店</text>
+ </navigator>
+
+ <!-- 消费冲榜 -->
+ <navigator url="/pages/secondPages/phb/phb"  open-type="redirect"  class="flex flex-col items-center -mb-10">
+   <t-icon name="/static/icons/huiyuan3.png" class="w-16 h-24 m-3 text-4xl text-green-500"></t-icon>
+     <text class="text-sm text-gray-900 font-bold -mt-2">消费冲榜</text>
+ </navigator>
+
+ <!-- 每日签到 -->
+ <navigator url="/pages/secondPages/nxbqd/nxbqd"  open-type="redirect"  class="flex flex-col items-center -mb-10">
+     <t-icon name="/static/icons/huiyuan4.png" class="w-16 h-24 m-3 text-4xl text-orange-500"></t-icon>
+     <text class="text-sm text-gray-900 font-bold -mt-2s">每日签到</text>
+ </navigator>
+ </view>
+</view>
+
+
+

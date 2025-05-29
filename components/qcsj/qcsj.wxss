@@ -1,0 +1,2 @@
+/* components/qcsj/qcsj.wxss */
+@import "../../style/tailwind.wxss"; 

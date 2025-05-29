@@ -1,0 +1,87 @@
+{
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "qywx-project",
+  "setting": {
+    "compileHotReLoad": true,
+    "bigPackageSizeSupport": true,
+    "autoAudits": false,
+    "urlCheck": false
+  },
+  "libVersion": "trial",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/trolley/trolley",
+          "pathName": "pages/trolley/trolley",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/secondPages/menu/menu",
+          "pathName": "pages/secondPages/menu/menu",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/secondPages/huiyuanqun/huiyuanqun",
+          "pathName": "pages/secondPages/huiyuanqun/huiyuanqun",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/secondPages/chuzhi/chuzhi",
+          "pathName": "pages/secondPages/chuzhi/chuzhi",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/ofg/ofg",
+          "pathName": "pages/ofg/ofg",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/order/order",
+          "pathName": "pages/order/order",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/life/life",
+          "pathName": "pages/life/life",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/wealth/wealth",
+          "pathName": "pages/wealth/wealth",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

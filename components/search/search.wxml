@@ -1,0 +1,13 @@
+<view class="rounded-md">
+  <t-search
+    value="{{value}}"
+    center
+    placeholder="搜索商品"
+    action="{{actionText}}"
+    bind:blur="blurHandle"
+    bind:focus="focusHandle"
+    bind:action-click="actionHandle"
+    bind:change="changeHandle"
+    shape="round" />
+</view>
+

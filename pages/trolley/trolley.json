@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "qcsj":"../../components/qcsj/qcsj"
+  },
+  "navigationBarTitleText": "订单结算"
+}

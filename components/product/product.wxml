@@ -1,0 +1,14 @@
+<!--components/product/product.wxml-->
+<view class="w-128 h-screen flex my-1 py-4 -mt-1 pl-4 bg-white shadow-md">
+  <!-- 内容区域 -->
+  <scroll-view class="scroll-view flex-1" scroll-y enhanced show-scrollbar="{{false}}" scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="onScroll">
+    <view wx:for="{{categories}}" wx:key="index" class="section pt-6" data-index="{{index}}">
+      <view class="title pl-6 mb-0 text-base font-bold">{{item.title}}</view>
+      <block wx:for="{{item.items}}" wx:for-item="itm" wx:key="index">
+        <view class="ml-5 mt-5">
+          <image src="{{itm.image}}" class="w-48 h-48"></image>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

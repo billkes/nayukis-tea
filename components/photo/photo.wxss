@@ -1,0 +1,2 @@
+/* components/photo/photo.wxss */
+@import "../../style/tailwind.wxss";

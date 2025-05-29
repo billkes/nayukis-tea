@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="w-screen h-screen" style="background-color: {{colorset[selectedColor]}};">
+  <!-- 顶部背景图片 -->
+  <!-- <image 
+    src="/static/images/bg.jpg" 
+    mode="aspectFill" 
+    class="w-full h-40"
+  /> -->
+  <t-swiper style="--td-swiper-radius:0px;--td-swiper-nav-dot-size:0px" height="480" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" list="{{swiperList}}" bind:click="onTap" bind:change="onChange" bind:image-load="onImageLoad">
+  </t-swiper>
+  <view class="-mt-3">
+    <Card></Card>
+  </view>
+</view>

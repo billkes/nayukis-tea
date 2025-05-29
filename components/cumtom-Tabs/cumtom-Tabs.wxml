@@ -1,0 +1,71 @@
+<!--components/cumtom-Tabs/cumtom-Tabs.wxml-->
+<view class="w-screen h-screen bg-gray-100">
+<view>
+<t-tabs
+  animation="{{ { duration: 0.6 } }}"
+  defaultValue="{{0}}"
+  bind:change="onTabsChange"
+  bind:click="onTabsClick"
+  show-bottom-line="{{show-bottom-line}}"
+  style="{{barStyle}}"
+>
+<t-tab-panel label="当前订单" value="0" class="bg-gray-100 h-screen">
+  <view wx:if="{{item.data.length > 0}}">
+  <block wx:for="{{item.data}}" wx:for-item="subItem" wx:for-index="idx" >
+  <view>{{subItem.name}}</view>
+  </block>
+  </view>
+  <view wx:else>
+    <image src="/static/images/111.jpg" mode="aspectFill" class="w-48 h-48 mt-50 ml-47 pt-10"></image>
+    <view class="ml-49 mt-20 text-gray-800 text-sm">
+    <text>您还没有点餐</text>
+    </view>
+    <view class="ml-46 mt-3 text-gray-800 text-sm"><text>快去犒劳一下自己吧~</text></view>
+    <navigator url="/pages/order/order"  
+            open-type="switchTab" class="flex justify-center items-center text-base w-88 h-24 mt-20 ml-52 text-center bg-green-45cd00 text-white rounded-50 ">去点餐</navigator>
+  </view>
+  </t-tab-panel>
+  <t-tab-panel label="历史订单" value="1" class="bg-gray-100">
+  <view class="tabs-container">
+  <view class="flex justify-around h-screen bg-gray-100">
+    <!-- 动态绑定 style 属性，根据是否是当前选中的子选项卡来决定字体颜色 -->
+    <text wx:for="{{subTabs}}" wx:key="key" data-value="{{item.value}}" bindtap="onSubTabClick"
+          class="tab: {{currentSubTab === item.value ? 'active' : '#45cd00'}} text-gray-400">
+      {{item.label}}
+    </text>
+  </view>
+
+  <!-- 根据当前选中的子选项卡动态渲染内容 -->
+  <view wx:if="{{currentSubTab === 'all'}}">
+    <view></view>
+  </view>
+  <view wx:if="{{currentSubTab === 'pickup'}}">
+    <view></view>
+  </view>
+  <view wx:if="{{currentSubTab === 'delivery'}}">
+    <view></view>
+  </view>
+  <view wx:if="{{currentSubTab === 'cz'}}">
+    <view></view>
+  </view>
+  <view wx:if="{{currentSubTab === 'kq'}}">
+    <view></view>
+  </view>
+  <view wx:if="{{currentSubTab === 'qyk'}}">
+    <view></view>
+  </view>
+</view>
+  </t-tab-panel>
+ 
+  <!-- 如果有数据，展示数据；否则展示暂无数据-->
+  <view wx:if="{{item.data.length > 0}}">
+  <block wx:for="{{item.data}}" wx:for-item="subItem" wx:for-index="idx">
+  <view>{{subItem.name}}</view>
+  </block>
+  </view>
+  <view wx:else>
+  暂无数据
+  </view>
+</t-tabs>
+</view>
+</view>

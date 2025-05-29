@@ -1,0 +1,2 @@
+<!--components/products/products.wxml-->
+<view class="w-180 h-48 flex justify-between my-1 py-4 mx-auto bg-white rounded-lg shadow-md"></view>

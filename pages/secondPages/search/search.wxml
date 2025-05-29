@@ -1,0 +1,4 @@
+<!--pages/secondPages/search/search.wxml-->
+<view>
+  <search></search>
+</view>

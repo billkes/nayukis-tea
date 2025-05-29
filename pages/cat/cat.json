@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+        "custom-navbar": "/components/custom-navbar/custom-navbar",
+        "t-sticky": "/miniprogram_npm/tdesign-miniprogram/sticky/sticky",
+        "t-button": "/miniprogram_npm/tdesign-miniprogram/button/button",
+        "t-icon": "/miniprogram_npm/tdesign-miniprogram/icon/icon",
+        "t-navbar": "/miniprogram_npm/tdesign-miniprogram/navbar/navbar"
+    },
+    "navigationBarTitleText": "首页",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black"
+}

@@ -1,0 +1,28 @@
+<!--components/product-item/product-item.wxml-->
+<view class="w-170 h-64 flex justify-around py-6 mx-10 bg-white shadow-md ">
+
+</view>
+<view class="w-170 h-64 flex justify-around py-6 mx-10 bg-white shadow-md ">
+
+</view>
+<view class="w-170 h-64 flex justify-around py-6 mx-10 bg-white shadow-md ">
+
+</view>
+<view class="w-170 h-64 flex justify-around py-6 mx-10 bg-white shadow-md ">
+
+</view>
+<view class="w-170 h-64 flex justify-around py-6 mx-10 bg-white shadow-md ">
+
+</view>
+<view class="w-170 h-64 flex justify-around py-6 mx-10 bg-white shadow-md ">
+
+</view>
+<view class="w-170 h-64 flex justify-around py-6 mx-10 bg-white shadow-md ">
+
+</view>
+<view class="w-170 h-64 flex justify-around py-6 mx-10 bg-white shadow-md ">
+
+</view>
+<view class="w-170 h-64 flex justify-around py-6 mx-10 bg-white shadow-md ">
+
+</view>

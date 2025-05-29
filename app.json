@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/order/order",
+    "pages/ofg/ofg",
+    "pages/mine/mine",
+    "pages/secondPages/hehuoren/hehuoren",
+    "pages/secondPages/huiyuanqun/huiyuanqun",
+    "pages/secondPages/qiyepindan/qiyepindan",
+    "pages/secondPages/shangcheng/shangcheng",
+    "pages/secondPages/lipinka/lipinka",
+    "pages/secondPages/search/search",
+    "pages/secondPages/chuzhi/chuzhi",
+    "pages/secondPages/student/student",
+    "pages/secondPages/together/together",
+    "pages/secondPages/address/address",
+    "pages/secondPages/quan/quan",
+    "pages/secondPages/hyqy/hyqy",
+    "pages/secondPages/nxbsd/nxbsd",
+    "pages/secondPages/nxly/nxly",
+    "pages/secondPages/phb/phb",
+    "pages/secondPages/nxbqd/nxbqd",
+    "pages/secondPages/two/two",
+    "pages/secondPages/three/three",
+    "pages/secondPages/five/five",
+    "pages/secondPages/six/six",
+    "pages/secondPages/menu/menu",
+    "pages/cat/cat",
+    "pages/trolley/trolley"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "light",
+    "pageOrientation": "portrait"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4b5563",
+    "selectedFontWeight": "bold",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/icons/index.png",
+        "selectedIconPath": "static/icons/selectedindex.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "点餐",
+        "iconPath": "static/icons/order.png",
+        "selectedIconPath": "static/icons/selectedorder.png"
+      },
+      {
+        "pagePath": "pages/ofg/ofg",
+        "text": "订单",
+        "iconPath": "static/icons/ofg.png",
+        "selectedIconPath": "static/icons/selectedofg.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "static/icons/mine.png",
+        "selectedIconPath": "static/icons/selectedmine.png"
+      }
+    ]
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json"
+}

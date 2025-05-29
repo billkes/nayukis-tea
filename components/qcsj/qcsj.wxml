@@ -1,0 +1,12 @@
+<!--components/qcsj/qcsj.wxml-->
+
+<view class="h-44 mx-6 shadow-md bg-white mt-10 pt-10">
+  <view>
+    <view class="text-base font-bold mt-10">取餐时间</view>
+    <view>
+      <picker bindchange="handlePickupTimeChange" value="{{selectedPickupTimeIndex}}" range="{{pickupTimeOptions}}">
+        <text class="selected-time">{{pickupTimeOptions[selectedPickupTimeIndex]}}</text>
+      </picker>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<!--components/infoCard/infoCard.wxml-->
+<view class="w-128 bg-white rounded-20 shadow-md">
+  <!-- 第一行：产品信息 -->
+  <view class="flex justify-between items-center mb-3">
+    <view class="w-48 text-base text-center bg-orange-200 text-orange-700 px-2 py-1 rounded-tl-20 rounded-br-20">农银理财</view>
+    <view class="text-gray-400 text-xs px-2">产品代码：NYTXLL</view>
+  </view>
+
+  <view class="m-5">
+  <!-- 第二行：产品名称 -->
+    <view class="text-base font-medium my-5 text-gray-600">农银同心·灵珑优选配置第32期（优享）</view>
+    <!-- 第三行：收益和期限 -->
+    <view class="flex justify-between items-center m-5">
+        <view class="flex flex-col">
+            <text class="text-base text-gray-600">2.40%-2。60%</text>
+            <text class="text-sm text-gray-500">业绩比较基准</text>
+        </view>
+        <view class="flex flex-col">
+            <text class="text-base text-gray-600">379天</text>
+            <text class="text-sm text-gray-500">持有期限</text>
+        </view>
+    </view>
+
+    <!-- 第四行：购买按钮 -->
+    <button class="w-96 h-16 text-sm mx-auto bg-orange-500 text-white rounded-50">立即购买</button>
+
+    <!-- 第五行：提示信息 -->
+    <view class="w-96 mx-auto py-4 text-xs text-gray-400 text-center truncate">业绩比较基准不是预期收益率，不代表产品的未来表现和实际收益，不</view>
+  </view>
+</view>

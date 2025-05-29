@@ -1,0 +1,37 @@
+<view class="sticky top-0 z-10 bg-white pt-10 pb-5">
+  <view class="flex">
+    <image src="/static/images/pindan.jpg" mode="aspectFit" class="w-16 h-16 pl-2"></image>
+    <text class="text-green-500 text-sm font-bold  py-3 ml-2">拼单</text>
+    <view class="ml-50 pl-10">
+      <t-button theme="default" size="extra-small" icon="search" shape="circle" aria-label="搜索" bindtap="navigateToPage"></t-button>
+    </view>
+  </view>
+  <view class="flex items-center justify-between px-4 mt-4">
+    <view>
+      <view class="flex items-center">
+        <t-icon name="shop-1" class="text-gray-500" size="32rpx" />
+        <text class="text-lg mx-3">{{storeName}}</text>
+        <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
+      </view>
+      <view class="flex items-center">
+        <t-icon name="location" class="text-gray-500" size="32rpx" />
+        <text class="mx-3 text-sm text-gray-500">距离您{{len}}km</text>
+      </view>
+    </view>
+
+    <view class="flex rounded-20 bg-gray-100">
+      <view class="flex items-center justify-center px-6 py-2 h-10 bg-green-500 text-white rounded-20">
+        <text>自取</text>
+      </view>
+      <view class="flex items-center justify-center px-6 py-2 h-10 bg-gray-100 rounded-20">
+        <text>外卖</text>
+      </view>
+    </view>
+  </view>
+
+  <t-notice-bar visible="{{true}}" direction="vertical" interval="{{3000}}" content="{{content}}" prefixIcon="false" bind:click="click" suffixIcon="chevron-down" t-class-operation="{{operation}}" class="h-0 bg-gray-100 mt-4 text-xs items-center pl-0">
+    <view slot="prefix-icon" class="ml-3 text-xs w-8 h-8 bg-green-600 flex justify-center items-center">
+      <text class="text-white">减</text>
+    </view>
+  </t-notice-bar>
+</view>

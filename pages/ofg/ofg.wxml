@@ -1,0 +1,4 @@
+<!--pages/ofg/ofg.wxml-->
+<view>
+  <cumtom-Tabs array-list="{{list}}"></cumtom-Tabs>
+</view>

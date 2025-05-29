@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "cumtom-Tabs": "/components/cumtom-Tabs/cumtom-Tabs",
+    "top":"/components/top/top"
+  },
+  "navigationBarTitleText": "奈雪的茶"
+}

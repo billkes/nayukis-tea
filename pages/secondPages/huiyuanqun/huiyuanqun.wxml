@@ -1,0 +1,8 @@
+<!--pages/secondPages/huiyuanqun/huiyuanqun.wxml-->
+<view class="w-screen h-screen">
+  <!-- 顶部背景图片 -->
+  <image 
+    src="/static/images/hyq.jpg" 
+    class="w-full h-full"
+  />
+  </view>

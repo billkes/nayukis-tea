@@ -1,0 +1,7 @@
+{
+  "usingComponents":{ "lineCard":"../../components/lineCard/lineCard",
+    "t-icon": "../../miniprogram_npm/tdesign-miniprogram/icon/icon",
+    "t-swiper": "../../miniprogram_npm/tdesign-miniprogram/swiper/swiper"
+  },
+  "navigationStyle":"custom"
+}

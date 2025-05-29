@@ -1,0 +1,2 @@
+/* components/location.wxss */
+@import "../../style/tailwind.wxss";

@@ -1,0 +1,6 @@
+/* components/custom-navbar/custom-navbar.wxss */
+/* components/custom-navbar/custom-navbar.wxss */
+.custom-image {
+  height: 24px;
+  width: 87px;
+}

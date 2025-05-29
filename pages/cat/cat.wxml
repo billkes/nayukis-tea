@@ -1,0 +1,42 @@
+<!--pages/cat/cat.wxml-->
+<!--index.wxml-->
+<view class="w-full h-screen">
+  <!-- 自定义导航栏 -->
+  <t-navbar 
+    style="opacity: {{1-opacity}}"
+  >
+    <view slot="title" class="flex items-center h-16 bg-gray-200 rounded-20 px-6 mx-6 flex-1">
+      <t-icon name="search" size="32rpx" color="#666" class="mr-3"/>
+      <input placeholder="搜索商品" disabled class="flex-1 text-sm text-gray-200"/>
+    </view>
+  </t-navbar>
+
+  <!-- 商品详情内容区 -->
+  <view class="w-full">
+    <!-- 商品主图 -->
+    <view class="w-full h-128">
+      <image 
+        src="https://img.yzcdn.cn/vant/cat.jpeg" 
+        mode="aspectFill"
+        class="w-full h-full"
+      />
+    </view>
+
+    <!-- 商品信息 -->
+    <view class="p-6 bg-white">
+      <view class="text-sm font-bold mb-4">商品标题名称</view>
+      <view class="text-lg mb-4">¥ 99.00</view>
+      <view class="text-sm text-gray-200 leading-normal mb-6">
+        这里是商品描述信息这里是商品描述信息这里是商品描述信息这里是商品描述信息
+      </view>
+      <!-- 添加更多商品详情内容 -->
+      <view 
+        wx:for="{{20}}" 
+        wx:key="index" 
+        class="py-6 border-b border-gray-500 text-sm text-gray-200"
+      >
+        商品详情内容 {{index + 1}}
+      </view>
+    </view>
+  </view>
+</view>

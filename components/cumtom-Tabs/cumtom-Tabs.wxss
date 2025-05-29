@@ -1,0 +1,6 @@
+/* components/cumtom-Tabs/cumtom-Tabs.wxss */
+@import "../../style/tailwind.wxss"; 
+/* custom-tabs.wxss */
+.tab.active {
+  color: green; /* 改变选中项的文字颜色为绿色 */
+}

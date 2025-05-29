@@ -1,0 +1,35 @@
+<!--components/photo/photo.wxml-->
+<view class="w-full flex mb-4 bg-white " style="opacity: {{1-opacity}}">
+  <view class="w-full">
+    <scroll-view scroll-x class="whitespace-nowrap -mt-3">
+
+      <view class="inline-block relative" bind:tap="gotoType" data-type='1'>
+        <image src="/static/images/aa.jpg" class="w-64 h-78 ml-5"></image>
+      </view>
+
+      <navigator url="/pages/secondPages/two/two" open-type="navigate" class="ml-30 flex pl-5 my-0 text-sm inline-block">
+        <image src="/static/images/bb.jpg" class="w-64 h-78 -ml-30"></image>
+      </navigator>
+
+      <navigator url="/pages/secondPages/three/three" open-type="navigate" class="ml-30 flex pl-5 my-0 text-sm inline-block">
+        <image src="/static/images/cc.jpg" class="w-64 h-78 -ml-30"></image>
+      </navigator>
+
+      <navigator url="/pages/secondPages/qiyepindan/qiyepindan" open-type="navigate" class="ml-30 flex pl-5 my-0 text-sm inline-block">
+        <image src="/static/images/dd.jpg" class="w-64 h-78 -ml-30"></image>
+      </navigator>
+
+      <navigator url="/pages/secondPages/five/five" open-type="navigate" class="ml-30 flex pl-5 my-0 text-sm inline-block">
+        <image src="/static/images/ee.jpg" class="w-64 h-78 -ml-30"></image>
+      </navigator>
+
+      <navigator url="/pages/secondPages/six/six" open-type="navigate" class="ml-30 flex pl-5 my-0 text-sm inline-block">
+        <image src="/static/images/ff.jpg" class="w-64 h-78 -ml-30"></image>
+      </navigator>
+
+      <navigator url="/pages/secondPages/student/student" open-type="navigate" class="ml-30 flex pl-5 my-0 text-sm inline-block">
+        <image src="/static/images/gg.jpg" class="w-64 h-78 -ml-30"></image>
+      </navigator>
+    </scroll-view>
+  </view>
+</view>

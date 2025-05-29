@@ -1,0 +1,9 @@
+<!--pages/secondPages/chuzhi/chuzhi.wxml-->
+<view class="w-screen h-screen">
+  <!-- 顶部背景图片 -->
+  <image 
+    src="/static/images/cz.jpg" 
+    mode="aspectFill" 
+    class="w-full h-180"
+  />
+  </view>

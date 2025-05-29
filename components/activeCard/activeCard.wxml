@@ -1,0 +1,18 @@
+<!--components/activeCard/activeCard.wxml-->
+<view class="w-88 mx-1 bg-white rounded-20 shadow-md">
+  <!-- 上方图片 -->
+  <view>
+    <image 
+    src="{{imageUrl}}" 
+    mode="aspectFill" 
+    class="w-full h-64 mb-4 rounded-t-20"
+  />
+  </view>
+  
+  
+  <!-- 中间文字 -->
+  <view class="text-base font-medium px-4">{{title}}</view>
+  
+  <!-- 下方文字 -->
+  <view class="text-gray-600 text-sm p-4">{{description}}</view>
+</view>

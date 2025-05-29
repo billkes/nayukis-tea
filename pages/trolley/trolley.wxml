@@ -1,0 +1,104 @@
+<view class="w-screen h-screen bg-gray-100">
+
+ <qcsj></qcsj>
+  <view class="dine-takeaway-section">
+  <view class="section-label">
+    <text>取餐方式</text>
+  </view>
+  <radio-group bindchange="handleDineTakeawayChange">
+    <label class="radio-label">
+      <radio value="dineIn" checked="{{dineInSelected}}">
+        <view class="option-container">
+          <view class="option-icon {{dineInSelected? 'checked-icon' : ''}}"></view>
+          <view class="option-text">店内堂食</view>
+        </view>
+      </radio>
+    </label>
+    <label class="radio-label">
+      <radio value="takeAway" checked="{{takeAwaySelected}}">
+        <view class="option-container">
+          <view class="option-icon {{takeAwaySelected? 'checked-icon' : ''}}"></view>
+          <view class="option-text">打包带走</view>
+        </view>
+      </radio>
+    </label>
+  </radio-group>
+</view>
+
+  <!-- 杯贴留言 -->
+  <view class="cup-message-section">
+    <view class="section-label">杯贴留言</view>
+    <view class="section-value">
+      <view class="message-link" bindtap="goToCustomizeMessage">开始定制 ></view>
+    </view>
+  </view>
+
+  <!-- 购物车商品展示 -->
+  <view class="product-item" wx:for="{{cartItems}}" wx:key="id">
+    <view class="product-left">
+      <image class="product-image" src="{{item.image}}" mode="aspectFill"></image>
+    </view>
+    <view class="product-middle">
+      <view class="product-name">{{item.name}}</view>
+      <view class="product-specs">{{item.selection}}</view>
+      <view class="product-quantity">x{{item.quantity}}</view>
+    </view>
+    <view class="product-right">
+      <view class="product-price-container">
+        <view class="product-price">￥{{item.totalPrice}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 精选搭配推荐 -->
+  <view class="recommended-section">
+    <view class="recommended-title">精选搭配，美好加倍</view>
+    <view class="recommended-item" wx:for="{{recommendedProducts}}" wx:key="id">
+      <view class="recommended-left">
+        <image class="recommended-image" src="{{item.image}}" mode="aspectFill"></image>
+      </view>
+      <view class="recommended-middle">
+        <view class="recommended-name">{{item.name}}</view>
+        <view class="recommended-price">
+          <view class="original-price">￥{{item.originalPrice}}</view>
+          <view class="current-price">￥{{item.currentPrice}}</view>
+        </view>
+      </view>
+      <view class="recommended-right">
+        <radio class="recommended-radio" value="{{item.id}}" bindchange="handleRecommendedProductChange"></radio>
+      </view>
+    </view>
+  </view>
+
+  <!-- 储值有礼 -->
+  <view class="recharge-section">
+    <view class="recharge-label">储值有礼</view>
+    <view class="recharge-link" bindtap="goToRecharge">立即购买 ></view>
+  </view>
+
+  <!-- 优惠券和礼品卡信息 -->
+  <view class="coupon-giftcard-section">
+    <view class="coupon-section">
+      <view class="coupon-label">优惠券</view>
+      <view class="coupon-value">暂无可⽤</view>
+      <view class="coupon-note">优惠券不与满赠、满减、商品优惠等活动共享(部分活动除外)</view>
+    </view>
+    <view class="giftcard-section">
+      <view class="giftcard-label">礼品卡</view>
+      <view class="giftcard-value">暂⽆可⽤礼品卡</view>
+    </view>
+  </view>
+
+  <!-- 支付信息 -->
+  <view class="payment-info-section">
+    <view class="payment-label">已优惠</view>
+    <view class="payment-value">￥{{discountAmount}}</view>
+    <view class="payment-label">应付</view>
+    <view class="payment-value">￥{{payableAmount}}</view>
+  </view>
+
+  <!-- 付款按钮 -->
+  <view class="payment-button-section">
+    <button class="payment-button" bindtap="createOrder">付款</button>
+  </view>
+</view>

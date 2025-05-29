@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="w-screen h-screen bg-gray-100">
+  <!-- 顶部背景图片 -->
+  <image 
+    src="/static/images/min.jpg" 
+    mode="aspectFill" 
+    class="w-full hs-215"
+  />
+  <view class="-mt-43 pt-26">
+    <lineCard></lineCard>
+  </view>
+<!-- 轮播图 -->
+<view class="swiper-box p-4 my-1 py-4">
+  <t-swiper
+    style="--td-swiper-radius:3px;--td-swiper-nav-dot-size:17rpx;--td-swiper-nav-dot-color:#A9A9A9;--td-swiper-nav-dot-active-color:#808080;"
+    height="130"
+    autoplay
+    interval="{{interval}}"
+    image-props="{{ { height:'120',width:'100%',mode:'aspectFit'} }}"
+    navigation="{{navigation}}"
+    paginationPosition="{{paginationPosition}}"
+    list="{{swiperList}}"
+  >
+  </t-swiper>
+</view>
+</view>

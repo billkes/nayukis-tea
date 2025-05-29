@@ -1,0 +1,4 @@
+/* components/search/search.wxss */
+@import "../../style/tailwind.wxss"; 
+
+

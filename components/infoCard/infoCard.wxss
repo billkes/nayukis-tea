@@ -1,0 +1,2 @@
+/* 引入 Tailwind 基础样式 */
+@import "../../style/tailwind.wxss"; 
