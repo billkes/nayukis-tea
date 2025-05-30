@@ -2,48 +2,57 @@
 
 <view class="h-screen bg-gray-100 px-10 py-10 box-border">
   <form catchsubmit="formSubmit" catchreset="formReset">
+
+    <view bind:tap="handleUploadImage" class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
+      <text class="">头像</text>
+      <view class="flex items-center">
+        <image src="/static/images/m.jpg" class="w-16 h-16 rounded-50" mode="scaleToFill" />
+        <t-icon name="chevron-right" class="" size="40rpx" />
+      </view>
+    </view>
     <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
-      <text class="">收货人</text>
-      <input value="{{consignee}}" bindinput="handleInputChange" data-fkey='consignee' class="text-right" name="consignee" placeholder="请输入收货人" />
+      <text class="">昵称</text>
+      <input value="{{consignee}}" bindinput="handleInputChange" data-fkey='consignee' class="text-right" name="consignee" placeholder="请输入昵称" />
     </view>
     <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
       <text class="">性别</text>
       <view class="flex items-center">
         <picker header-text='选择性别' bindchange="handlePickerChange" value="{{sexIndex}}" range-key="label" range="{{sexObjectArray}}">
           <view class="picker">
-            {{sexIndex === -1 ? '未知' : sexObjectArray[sexIndex].label}}
+            {{sexIndex === -1 || !sexIndex ? '未知' : sexObjectArray[sexIndex].label}}
           </view>
         </picker>
         <t-icon name="chevron-right" class="" size="40rpx" />
       </view>
     </view>
     <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
-      <text class="">手机号</text>
-      <input value="{{phone}}" bindinput="handleInputChange" data-fkey='phone' class="text-right" name="phone" placeholder="请输入手机号" />
-    </view>
-    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
-      <text class="">收货地址</text>
+      <text class="">账号</text>
       <view class="flex items-center">
         <text>...</text>
+      </view>
+    </view>
+    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
+      <text class="">手机号</text>
+      <view class="flex items-center">
+        <text>...</text>
+      </view>
+    </view>
+    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
+      <text class="">生日</text>
+      <view class="flex items-center">
+        <picker mode="date" value="{{date}}" name="date" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+          <view class="picker">
+            {{date ? date : '请选择日期'}}
+          </view>
+        </picker>
         <t-icon name="chevron-right" class="" size="40rpx" />
       </view>
     </view>
     <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
-      <text class="">门牌号</text>
-      <input value="{{houseNumber}}" bindinput="handleInputChange" data-fkey='houseNumber' class="text-right" name="houseNumber" placeholder="请输入门牌号" />
-    </view>
-
-    <!-- 断行 -->
-    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-5'>
-      <text class="">标签</text>
-      <view>
-        <!-- <text  wx:for="{{list}}" wx:key="index" wx:for-item="item" class='mb-6 bg-white px-6 py-6 flex justify-between items-center'></text> -->
-        <view></view>
+      <text class="">入会时间</text>
+      <view class="flex items-center">
+        <text>...</text>
       </view>
-    </view>
-    <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
-      <text class="">设为默认地址</text>
-      <switch name="isDefault" />
     </view>
 
     <!-- 空盒子 -->

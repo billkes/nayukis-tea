@@ -1,9 +1,13 @@
 <!--pages/secondPages/chuzhi/chuzhi.wxml-->
+<!-- 返回按钮 -->
+<navigator open-type="navigateBack" class="fixed top-10 z-20 left-10 bg-white h-12 rounded-50 w-12 text-gray-500 flex items-center justify-center">
+  <t-icon name="chevron-left" class="" size="32rpx" />
+</navigator>
+
 <view class="">
   <!-- 顶部背景图片 -->
   <view class="relative">
     <image src="/static/images/cz.jpg" mode="widthFix" class="w-full" />
-
 
     <view class="absolute bottom-0 left-10 right-10 px-5 bg-white h-12 py-2 flex justify-between items-center text-sm rounded-t-lg">
       <view>账户余额 <text class="underline">￥0</text></view>
@@ -17,7 +21,7 @@
       <view class="text-2xl">{{item.name}}</view>
       <view class="flex justify-between items-center">
         <text>{{item.desc}}</text>
-        <view class="text-green-500">
+        <view class="text-green-500 flex items-center">
           <text class="text-sm">权益详情</text>
           <t-icon name="chevron-right" class="" size="32rpx" />
         </view>

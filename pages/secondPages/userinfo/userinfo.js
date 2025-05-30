@@ -21,6 +21,7 @@ Page({
       },
     ],
     id: '',
+    date: '',
     consignee: '', // 收货人
     sex: '', // 0 女 1男
     phone: '', // 手机
@@ -28,18 +29,6 @@ Page({
     houseNumber: '', // 门牌号
     label: '', // 标签
     isDefault: '', // 是否默认 1-true
-  },
-
-  /**
-   * 性别选择器
-   */
-  handlePickerChange(e) {
-    console.log('性别选择器', 'handlePickerChange', e);
-    const index = e.detail.value
-    this.setData({
-      sexIndex: index,
-      sex: this.data.sexObjectArray[index].value
-    })
   },
 
   /**
@@ -53,6 +42,58 @@ Page({
     const value = e.detail.value
     this.setData({
       [fkey]: value
+    })
+  },
+
+  /**
+   * 性别选择器
+   */
+  handlePickerChange(e) {
+    console.log('性别选择器', 'handlePickerChange', e);
+    this.setData({
+      sexIndex: e.detail.value
+    })
+  },
+
+  /**
+   * 选择一张图片上传
+   */
+  handleUploadImage() {
+    wx.chooseMedia({
+      count: 9,
+      mediaType: ['image'],
+      sourceType: ['album', 'camera'],
+      maxDuration: 30,
+      camera: 'back',
+      success(res) {
+        console.log(res.tempFiles[0].tempFilePath)
+        console.log(res.tempFiles[0].size)
+
+        wx.uploadFile({
+          url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
+          filePath: res.tempFiles[0].tempFilePath,
+          name: 'file',
+          formData: {
+            'user': 'test'
+          },
+          success(res) {
+            const data = res.data
+            //do something 更改头像
+
+
+          }
+        })
+      }
+    })
+  },
+
+  /**
+   * 日期选择
+   */
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
     })
   },
 
@@ -160,42 +201,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options);
-    /**
-     * 如有id则为编辑
-     * 反之新增
-     */
-    if (options.id) {
-      // 1. 获取本地地址别表 拿到对应地址 把值替换
-      // 获取本地的地址
-      const list = wx.getStorageSync('addressList') || []
-      const obj = list.find(o => o.id === options.id)
-      if (obj) {
-        for (const key in obj) {
-          this.setData({
-            [key]: obj[key]
-          })
-        }
-        if (obj.sex == '0') {
-          this.setData({
-            sexIndex: 1
-          })
-        } else if (obj.sex == '1') {
-          this.setData({
-            sexIndex: 0
-          })
-        } else {
-          this.setData({
-            sexIndex: -1
-          })
-        }
-      } else {
-        wx.showToast({
-          title: '获取失败',
-          icon: 'error'
-        })
-      }
-    }
+    // 登录后就会存在用户信息
+
+
   },
 
   /**

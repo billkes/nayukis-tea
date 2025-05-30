@@ -1,4 +1,7 @@
 // app.js
+const {
+  BASE_URL
+} = require('./utils/config')
 App({
   onLaunch() {
     this.checkLoginStatus();
@@ -11,7 +14,7 @@ App({
       wx.login({
         success: (res) => {
           //发送res.code 到后台换取 openId, sessionKey, unionId
-          // console.log("onLaunch", res);
+          console.log("onLaunch", res);
           this.loginWithCode(res.code);
         }
       })
@@ -20,7 +23,7 @@ App({
   loginWithCode: function (code) {
     // 请求我自己的服务器 --用code换openid
     // 保存openid
-    const requsetUrl = "https://adaa-110-16-109-248.ngrok-free.app/user/login";
+    const requsetUrl = BASE_URL + "/user/login";
     wx.request({
       url: requsetUrl,
       data: {

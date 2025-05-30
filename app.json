@@ -26,7 +26,8 @@
     "pages/secondPages/six/six",
     "pages/secondPages/five/five",
     "pages/secondPages/menu/menu",
-    "pages/cat/cat"
+    "pages/cat/cat",
+    "pages/secondPages/userinfo/userinfo"
   ],
   "window": {
     "navigationBarTextStyle": "black",

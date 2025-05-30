@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "管理地址",
+  "navigationBarTitleText": "用户信息",
   "usingComponents": {
     "t-icon": "../../../miniprogram_npm/tdesign-miniprogram/icon/icon"
   }

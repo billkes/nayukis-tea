@@ -3,7 +3,7 @@
 
   <view class="h-12 flex py-6 mx-10 px-8 justify-between items-center shadow-md bg-opacity-70 ">
     <!-- 跳转用户信息 -->
-    <navigator url="/pages/secondPages/quan/quan" open-type="navigate">
+    <navigator url="/pages/secondPages/userinfo/userinfo" open-type="navigate">
       <text class="text-sm text-gray-900 font-bold ">Hi,x.</text>
     </navigator>
     <!-- 奈雪券 -->
@@ -46,7 +46,7 @@
 
         <navigator url="/pages/secondPages/huiyuanqun/huiyuanqun" open-type="navigate" class="ml-30 flex justify-between items-center pl-6 my-0 text-sm inline-block">加入会员群</navigator>
 
-        <navigator url="/pages/secondPages/hehuoren/hehuoren" open-type="navigate" class="ml-30 flex justify-between items-center pl-8 my-0 text-sm inline-block">成为合伙人</navigator>
+        <view bind:tap="handleTransOtherWx" class="ml-30 flex justify-between items-center pl-8 my-0 text-sm inline-block">成为合伙人</view>
 
         <navigator url="/pages/secondPages/qiyepindan/qiyepindan" open-type="navigate" class="ml-30 flex justify-between items-center pl-1 my-0 text-sm inline-block">企业拼单</navigator>
 
