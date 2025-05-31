@@ -1,11 +1,20 @@
 // pages/secondPages/editAddress/editAddress.js
 
+/**
+ * 以最简单的方式构建用户信息
+ */
+const defautlUserinfo = {
+  id: '1234',
+  name: '张三', // 昵称
+  date: '2025-05-30', // 生日
+  sex: '1',
+}
+
 const {
   getNewId
 } = require('../../../utils/util.js')
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -20,15 +29,7 @@ Page({
         value: '0'
       },
     ],
-    id: '',
-    date: '',
-    consignee: '', // 收货人
-    sex: '', // 0 女 1男
-    phone: '', // 手机
-    deliveryAddress: '这是一个默认收获地址', // 收获地址
-    houseNumber: '', // 门牌号
-    label: '', // 标签
-    isDefault: '', // 是否默认 1-true
+    userinfo: {},
   },
 
   /**
@@ -40,8 +41,9 @@ Page({
       fkey
     } = e.currentTarget.dataset
     const value = e.detail.value
+    this.data.userinfo[fkey] = value
     this.setData({
-      [fkey]: value
+      userinfo: this.data.userinfo
     })
   },
 
@@ -92,8 +94,9 @@ Page({
    */
   bindDateChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.data.userinfo.date = e.detail.value
     this.setData({
-      date: e.detail.value
+      userinfo: this.data.userinfo
     })
   },
 
@@ -101,57 +104,13 @@ Page({
    * 验证表单
    */
   verifyForm() {
-    if (!this.data.consignee) {
+    if (!this.data.userinfo.name) {
       wx.showToast({
-        title: '请填写收货人',
+        title: '请填写昵称',
         icon: 'error'
       })
       return false
     }
-    if (!this.data.deliveryAddress) {
-      wx.showToast({
-        title: '请选择收货地址',
-        icon: 'error'
-      })
-      return false
-    }
-    // if (!this.data.sex) {
-    //   wx.showToast({
-    //     title: '请选择性别',
-    //     icon: 'error'
-    //   })
-    //   return false
-    // }
-    if (!this.data.phone) {
-      wx.showToast({
-        title: '请填写手机号',
-        icon: 'error'
-      })
-      return false
-    }
-    if (!this.data.houseNumber) {
-      wx.showToast({
-        title: '请填写门牌号',
-        icon: 'error'
-      })
-      return false
-    }
-    // 不必填
-    // if (!this.data.label) {
-    //   wx.showToast({
-    //     title: '请填写标签',
-    //     icon: 'error'
-    //   })
-    //   return false
-    // }
-    // 不必填
-    // if (!this.data.isDefault) {
-    //   wx.showToast({
-    //     title: '请选择是否默认地址',
-    //     icon: 'error'
-    //   })
-    //   return false
-    // }
     return true
   },
 
@@ -168,28 +127,14 @@ Page({
 
     // 构造数据
     const formData = {
-      ...e.detail.value,
-      sex: this.data.sex,
-      deliveryAddress: this.data.deliveryAddress,
-      label: this.data.label,
-      id: this.data.id || getNewId()
+      ...this.data.userinfo
     }
     console.log(formData);
-    // 获取数据
-    const list = wx.getStorageSync('addressList') || []
-    console.log(list);
-    // 插入或更新数据
-    const objIndex = list.findIndex(o => o.id === formData.id)
-    if (objIndex !== -1) {
-      list[objIndex] = formData
-    } else {
-      list.push(formData)
-    }
     // 存储数据
-    wx.setStorageSync('addressList', list)
+    wx.setStorageSync('userinfoData', formData)
     // 返回
     wx.showToast({
-      title: '保存chengg',
+      title: '保存成功',
       icon: 'success',
       success: () => {
         wx.navigateBack()
@@ -201,9 +146,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    // 登录后就会存在用户信息
-
-
+    const userinfo = wx.getStorageSync('userinfoData') || defautlUserinfo
+    this.setData({
+      userinfo,
+      sexIndex: userinfo.sex == '1' ? 0 : 1
+    })
   },
 
   /**

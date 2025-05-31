@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/secondPages/huiyuanqun/huiyuanqun",
     "pages/index/index",
     "pages/order/order",
     "pages/ofg/ofg",
     "pages/mine/mine",
     "pages/secondPages/hehuoren/hehuoren",
-    "pages/secondPages/huiyuanqun/huiyuanqun",
     "pages/secondPages/qiyepindan/qiyepindan",
     "pages/secondPages/shangcheng/shangcheng",
     "pages/secondPages/lipinka/lipinka",

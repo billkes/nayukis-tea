@@ -12,14 +12,14 @@
     </view>
     <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
       <text class="">昵称</text>
-      <input value="{{consignee}}" bindinput="handleInputChange" data-fkey='consignee' class="text-right" name="consignee" placeholder="请输入昵称" />
+      <input value="{{userinfo.name}}" bindinput="handleInputChange" data-fkey='name' class="text-right" name="name" placeholder="请输入昵称" />
     </view>
     <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
       <text class="">性别</text>
       <view class="flex items-center">
         <picker header-text='选择性别' bindchange="handlePickerChange" value="{{sexIndex}}" range-key="label" range="{{sexObjectArray}}">
           <view class="picker">
-            {{sexIndex === -1 || !sexIndex ? '未知' : sexObjectArray[sexIndex].label}}
+            {{sexIndex === -1  ? '未知' : sexObjectArray[sexIndex].label}}
           </view>
         </picker>
         <t-icon name="chevron-right" class="" size="40rpx" />
@@ -28,21 +28,21 @@
     <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
       <text class="">账号</text>
       <view class="flex items-center">
-        <text>...</text>
+        <text>A1651WDW3213aADAD</text>
       </view>
     </view>
     <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
       <text class="">手机号</text>
       <view class="flex items-center">
-        <text>...</text>
+        <text>13000000000</text>
       </view>
     </view>
     <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
       <text class="">生日</text>
       <view class="flex items-center">
-        <picker mode="date" value="{{date}}" name="date" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <picker mode="date" value="{{userinfo.date}}" name="date" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
           <view class="picker">
-            {{date ? date : '请选择日期'}}
+            {{userinfo.date ? userinfo.date : '请选择生日日期'}}
           </view>
         </picker>
         <t-icon name="chevron-right" class="" size="40rpx" />
@@ -51,7 +51,7 @@
     <view class='flex items-center justify-between px-8 h-24 bg-white rounded-md mt-1'>
       <text class="">入会时间</text>
       <view class="flex items-center">
-        <text>...</text>
+        <text>2025-05-05</text>
       </view>
     </view>
 

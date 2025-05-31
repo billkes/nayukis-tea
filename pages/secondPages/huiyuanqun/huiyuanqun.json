@@ -1,4 +1,9 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "t-picker": "../../../miniprogram_npm/tdesign-miniprogram/picker/picker",
+    "t-picker-item": "../../../miniprogram_npm/tdesign-miniprogram/picker-item/picker-item",
+    "t-icon": "../../../miniprogram_npm/tdesign-miniprogram/icon/icon",
+    "t-input": "../../../miniprogram_npm/tdesign-miniprogram/input/input"
+  },
   "navigationBarTitleText": "加小奈好友"
 }

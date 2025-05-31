@@ -1,8 +1,35 @@
 <!--pages/secondPages/huiyuanqun/huiyuanqun.wxml-->
 <view class="w-screen h-screen">
   <!-- 顶部背景图片 -->
-  <image 
-    src="/static/images/hyq.jpg" 
-    class="w-full h-full"
-  />
+  <image src="/static/images/hyq.jpg" class="w-full " mode="widthFix" bindtap="previewImage" />
+
+  <view class="absolute top-0 left-0 z-10 w-full pt-26">
+    <view class="mt-100 flex justify-center flex-col items-center ">
+      <view class="flex w-66 -mt-5 bg-white rounded-50 py-4 px-4 box-border border border-solid shadow-md">
+        <view class="flex w-32" bind:tap="handleToggleCity">
+          <text class="flex-1">{{cityText?cityText:'北京'}}</text>
+          <t-icon name="chevron-down" class="" size="40rpx" />
+        </view>
+        <input type="text" class="flex-1 ml-10" value="{{keyword}}" bindinput="handleInput" bindfocus="handleFocus" placeholder="请输入门店" bindblur="handleBlur" />
+      </view>
+
+      <scroll-view wx:if="{{isFocus}}" scroll-y class="h-64 shadow-md w-66 bg-white radiusrounded-20 box-border py-5 px-5">
+        <view wx:for="{{filterList}}" wx:key="*this" class="py-3" bind:tap="handleItemClick" data-keyword="{{item}}">
+          <text>{{item}}</text>
+        </view>
+      </scroll-view>
+    </view>
   </view>
+
+  <t-picker visible="{{cityVisible}}" value="{{cityValue}}" data-key="city" title="选择城市" cancelBtn="取消" confirmBtn="确认" usingCustomNavbar bindchange="onPickerChange" bindpick="onColumnChange" bindcancel="onPickerCancel">
+    <t-picker-item options="{{citys}}" format="{{formatter}}">
+      <block wx:for="{{citys}}" wx:key="index" wx:for-item="option">
+        <view wx:if="{{option.tag}}" slot="label-suffix--{{index}}" class="label-suffix">
+          <t-tag size="small" theme="primary">{{option.tag}}</t-tag>
+        </view>
+      </block>
+    </t-picker-item>
+  </t-picker>
+
+
+</view>

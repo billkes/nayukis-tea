@@ -1,15 +1,16 @@
 <!--index.wxml-->
 
 <!-- 全屏轮播图 -->
-<swiper class="h-screen absolute top-0 w-full" indicator-dots="{{indicatorDots}}" bindchange="onChange" bind:tap="onTap" circular current="{{selectedColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+<swiper class="h-screen absolute z-10 top-0 w-full" indicator-dots="{{indicatorDots}}" bindchange="onChange" bind:tap="onTap" circular current="{{selectedColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for="{{swiperList}}" wx:key="*this">
     <swiper-item class="h-screen">
-      <view class="swiper-item">
+      <navigator url="/pages/order/order" open-type="switchTab">
         <image src="{{item}}" mode="widthFix" class="w-full" />
-      </view>
+      </navigator>
     </swiper-item>
   </block>
 </swiper>
+
 <!-- 主页主要内容 -->
 <view style="background-color: {{colorset[selectedColor]}};">
   <!-- 占一个隐藏的图片 -->
