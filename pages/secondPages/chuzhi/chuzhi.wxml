@@ -21,13 +21,36 @@
       <view class="text-2xl">{{item.name}}</view>
       <view class="flex justify-between items-center">
         <text>{{item.desc}}</text>
-        <view class="text-green-500 flex items-center">
+        <view class="text-green-500 flex items-center" bind:tap="handleView">
           <text class="text-sm">权益详情</text>
           <t-icon name="chevron-right" class="" size="32rpx" />
         </view>
       </view>
     </view>
   </view>
+
+  <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="bottom" close-btn>
+    <view>
+      <view class="flex py-5 h-12 items-center justify-center">
+        <text>使用说明</text>
+      </view>
+      <view class="px-8 hl-8 mb-5">
+        <text>1.xxxxx</text>
+      </view>
+      <view class="px-8 hl-8 mb-5">
+        <text>2.xxxxxxxx</text>
+      </view>
+      <view class="px-8 hl-8 mb-5">
+        <text>3.xxxxxxxxxxxxxxx</text>
+      </view>
+      <view class="px-8 hl-8 mb-5">
+        <text>4.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</text>
+      </view>
+      <view class="px-8 hl-8 mb-5">
+        <text>5.xxxxxxxxxxxxxxxxxxxxxxxxxxxx</text>
+      </view>
+    </view>
+  </t-popup>
 
   <!-- 空盒子 -->
   <view class="h-44"></view>

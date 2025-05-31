@@ -1,16 +1,16 @@
 {
   "pages": [
-    "pages/secondPages/huiyuanqun/huiyuanqun",
     "pages/index/index",
     "pages/order/order",
     "pages/ofg/ofg",
     "pages/mine/mine",
+    "pages/secondPages/huiyuanqun/huiyuanqun",
+    "pages/secondPages/chuzhi/chuzhi",
     "pages/secondPages/hehuoren/hehuoren",
     "pages/secondPages/qiyepindan/qiyepindan",
     "pages/secondPages/shangcheng/shangcheng",
     "pages/secondPages/lipinka/lipinka",
     "pages/secondPages/search/search",
-    "pages/secondPages/chuzhi/chuzhi",
     "pages/secondPages/student/student",
     "pages/secondPages/together/together",
     "pages/secondPages/address/address",

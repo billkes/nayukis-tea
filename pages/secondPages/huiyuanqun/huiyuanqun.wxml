@@ -7,7 +7,7 @@
     <view class="mt-100 flex justify-center flex-col items-center ">
       <view class="flex w-66 -mt-5 bg-white rounded-50 py-4 px-4 box-border border border-solid shadow-md">
         <view class="flex w-32" bind:tap="handleToggleCity">
-          <text class="flex-1">{{cityText?cityText:'北京'}}</text>
+          <text class="flex-1 truncate">{{cityText?cityText:'北京'}}</text>
           <t-icon name="chevron-down" class="" size="40rpx" />
         </view>
         <input type="text" class="flex-1 ml-10" value="{{keyword}}" bindinput="handleInput" bindfocus="handleFocus" placeholder="请输入门店" bindblur="handleBlur" />

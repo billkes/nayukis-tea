@@ -24,6 +24,20 @@ Page({
         desc: '限时赠10元现金券'
       },
     ],
+    visible: false,
+  },
+  onVisibleChange(e) {
+    this.setData({
+      visible: e.detail.visible,
+    });
+  },
+  /**
+   * 权益详情
+   */
+  handleView() {
+    this.setData({
+      visible: true
+    });
   },
 
   handleItemClick(e) {
