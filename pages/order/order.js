@@ -33,6 +33,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    okQhmd:{},
     topNodeHeight: 0,
     photoNodeHeight: 0,
     categories: [],
@@ -682,7 +683,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    const okQhmd = wx.getStorageSync('okQhmd') || {}
+    this.setData({okQhmd})
   },
 
   /**

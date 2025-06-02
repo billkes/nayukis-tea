@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "t-icon": "../../../miniprogram_npm/tdesign-miniprogram/icon/icon",
+    "t-tabs": "../../../miniprogram_npm/tdesign-miniprogram/tabs/tabs",
+    "t-tab-panel": "../../../miniprogram_npm/tdesign-miniprogram/tab-panel/tab-panel"
+  },
+  "navigationBarTitleText": "选择门店"
+}

@@ -5,7 +5,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    okQhmd: {
+      type: Object
+    }
   },
 
   /**
@@ -14,15 +16,37 @@ Component({
   data: {
     storeName: '店名',
     len: 5.7,
-    visible: true,
+    visible: false,
     content: ['加入门店会员群,领18元新人礼', '限时饮品烘焙2件八折', '小程序下单满赠周边活动'],
+    current: 0,
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-
+    navigateToPage() {
+      wx.navigateTo({
+        url: '/pages/secondPages/search/search',
+      })
+    },
+    handleToggleCurrent(e) {
+      // console.log(e.currentTarget.dataset.current);
+      const current = e.currentTarget.dataset.current
+      this.setData({
+        current
+      })
+    },
+    handlePopShow() {
+      this.setData({
+        visible: true
+      });
+    },
+    onVisibleChange(e) {
+      this.setData({
+        visible: e.detail.visible,
+      });
+    },
     onPageScroll(e) {
       clearTimeout(this.scrollTimer);
       this.scollArr = Array.isArray(this.scollArr) ? this.scollArr : []; //记录滚动坐标

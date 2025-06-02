@@ -1,13 +1,4 @@
-<view class="rounded-md">
-  <t-search
-    value="{{value}}"
-    center
-    placeholder="搜索商品"
-    action="{{actionText}}"
-    bind:blur="blurHandle"
-    bind:focus="focusHandle"
-    bind:action-click="actionHandle"
-    bind:change="changeHandle"
-    shape="round" />
+<view class="px-5 py-5 flex items-center">
+  <t-search class="flex-1" value="{{value}}" center placeholder="搜索商品" action="{{actionText}}" bind:blur="blurHandle" bind:focus="focusHandle" bind:action-click="actionHandle" bind:change="changeHandle" shape="round" />
+  <text class="ml-10">取消</text>
 </view>
-

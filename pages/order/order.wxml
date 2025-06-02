@@ -1,5 +1,5 @@
 <!-- 自定义导航栏 -->
-<top id="top-node"></top>
+<top id="top-node" okQhmd="{{okQhmd}}"></top>
 
 <!-- 横向滚动视图：图片列表 -->
 <photo id="photo-node" bind:handleGotoType='handleGotoType'></photo>

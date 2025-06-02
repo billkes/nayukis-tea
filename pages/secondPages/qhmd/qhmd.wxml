@@ -1,0 +1,104 @@
+<!--pages/secondPages/qhmd/qhmd.wxml-->
+<scroll-view class="bg-gray-100 min-h-screen">
+  <t-tabs defaultValue="{{0}}" value="{{tabValue}}" show-bottom-line="{{false}}" bind:change="onTabsChange">
+    <t-tab-panel label="选择门店" value="0" />
+    <t-tab-panel label="常用/收藏" value="1" />
+  </t-tabs>
+  <view wx:if="{{tabValue===0}}">
+    <view class="px-10 py-2 flex justify-between items-center h-16 border-0 border-b border-solid border-gray-200 bg-white">
+      <view class="flex items-center">
+        <text>地区市</text>
+        <t-icon name="chevron-right" class="ml-5" size="40rpx" />
+      </view>
+      <view class="px-5 py-2 rounded-50 bg-gray-100 text-gray-500 flex text-xs items-center">
+        <t-icon name="search" class="mr-2" size="28rpx" />
+        <text>搜索</text>
+      </view>
+    </view>
+    <map id="myMap" class="w-full h-160" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location></map>
+    <view class="py-4 flex justify-center bg-white shadow-md">
+      <text class="text-xs text-gray-500">收起地图</text>
+      <t-icon name="chevron-up" class="ml-5 text-gray-400" size="28rpx" />
+    </view>
+    <view class="py-5 px-8">
+      <view class="bg-white border border-solid border-gray-200 {{current==index?'border-green-500' :'' }} pl-10 py-10  rounded-lg box-border {{index==0 ? '' : 'mt-5' }}" wx:for="{{list}}" wx:key="index" data-current="{{index}}" bind:tap="handleSelect">
+        <view class="flex items-center ">
+          <view class="flex-1">
+            <view class="flex items-center">
+              <text>{{item.name}}</text>
+              <test class="ml-5 bg-green-500 text-white text-xs">可外送</test>
+            </view>
+            <view class="mt-10 text-xs text-gray-500">
+              {{item.desc}}
+            </view>
+            <view class="flex mt-10 items-center text-xs text-gray-400">
+              <view class="flex">
+                <t-icon name="location" class="" size="32rpx" />
+                <view class="ml-3">
+                  {{item.len}}
+                </view>
+              </view>
+              <view class="flex ml-10">
+                <t-icon name="time" class="" size="32rpx" />
+                <view class="ml-3">
+                  营业时间 10:10 - 21:00
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="w-48 flex justify-center items-center h-32 border-0 border-l border-solid border-gray-200 font-bold ml-10" bind:tap="handleOk" data-current="{{index}}">
+            去下单
+          </view>
+        </view>
+        <view class="flex items-center">
+          <image class="w-24 mr-5" src="/static/icons/qhmd-1.png" mode="widthFix" />
+          <image class="w-24 mr-5" src="/static/icons/qhmd-2.png" mode="widthFix" />
+          <image class="w-24 mr-5" src="{{listObj[item.id]?'/static/icons/qhmd-3-1.png':'/static/icons/qhmd-3-0.png'}}" bind:tap="handleToggleList" data-id="{{item.id}}" mode="widthFix" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{tabValue===1}}">
+    <view class="py-5 px-8">
+      <view wx:if="{{!likeList.length}}" class="text-gray-500 pt-26 flex justify-center">
+        收藏列表为空
+      </view>
+      <view class="bg-white border border-solid border-gray-200 {{current==index?'border-green-500' :'' }} pl-10 py-10  rounded-lg box-border {{index==0 ? '' : 'mt-5' }}" wx:for="{{likeList}}" wx:key="index" data-current="{{index}}" bind:tap="handleSelect">
+        <view class="flex items-center ">
+          <view class="flex-1">
+            <view class="flex items-center">
+              <text>{{item.name}}</text>
+              <test class="ml-5 bg-green-500 text-white text-xs">可外送</test>
+            </view>
+            <view class="mt-10 text-xs text-gray-500">
+              {{item.desc}}
+            </view>
+            <view class="flex mt-10 items-center text-xs text-gray-400">
+              <view class="flex">
+                <t-icon name="location" class="" size="32rpx" />
+                <view class="ml-3">
+                  {{item.len}}
+                </view>
+              </view>
+              <view class="flex ml-10">
+                <t-icon name="time" class="" size="32rpx" />
+                <view class="ml-3">
+                  营业时间 10:10 - 21:00
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="w-48 flex justify-center items-center h-32 border-0 border-l border-solid border-gray-200 font-bold ml-10" bind:tap="handleOk" data-current="{{index}}">
+            去下单
+          </view>
+        </view>
+        <view class="flex items-center">
+          <image class="w-24 mr-5" src="/static/icons/qhmd-1.png" mode="widthFix" />
+          <image class="w-24 mr-5" src="/static/icons/qhmd-2.png" mode="widthFix" />
+          <image class="w-24 mr-5" src="/static/icons/qhmd-3-1.png" wx:if="{{listObj[item.id]}}" bind:tap="handleToggleList" data-id="{{item.id}}" mode="widthFix" />
+          <image class="w-24 mr-10" src="/static/icons/qhmd-3-0.png" wx:if="{{!listObj[item.id]}}" bind:tap="handleToggleList" data-id="{{item.id}}" mode="widthFix" />
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

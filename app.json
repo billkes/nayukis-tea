@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/order/order",
+    "pages/secondPages/qhmd/qhmd",
+    "pages/index/index",
     "pages/ofg/ofg",
     "pages/mine/mine",
     "pages/secondPages/huiyuanqun/huiyuanqun",
