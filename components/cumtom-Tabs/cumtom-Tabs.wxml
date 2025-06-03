@@ -1,71 +1,124 @@
 <!--components/cumtom-Tabs/cumtom-Tabs.wxml-->
 <view class="w-screen h-screen bg-gray-100">
-<view>
-<t-tabs
-  animation="{{ { duration: 0.6 } }}"
-  defaultValue="{{0}}"
-  bind:change="onTabsChange"
-  bind:click="onTabsClick"
-  show-bottom-line="{{show-bottom-line}}"
-  style="{{barStyle}}"
->
-<t-tab-panel label="当前订单" value="0" class="bg-gray-100 h-screen">
-  <view wx:if="{{item.data.length > 0}}">
-  <block wx:for="{{item.data}}" wx:for-item="subItem" wx:for-index="idx" >
-  <view>{{subItem.name}}</view>
-  </block>
-  </view>
-  <view wx:else>
-    <image src="/static/images/111.jpg" mode="aspectFill" class="w-48 h-48 mt-50 ml-47 pt-10"></image>
-    <view class="ml-49 mt-20 text-gray-800 text-sm">
-    <text>您还没有点餐</text>
-    </view>
-    <view class="ml-46 mt-3 text-gray-800 text-sm"><text>快去犒劳一下自己吧~</text></view>
-    <navigator url="/pages/order/order"  
-            open-type="switchTab" class="flex justify-center items-center text-base w-88 h-24 mt-20 ml-52 text-center bg-green-45cd00 text-white rounded-50 ">去点餐</navigator>
-  </view>
-  </t-tab-panel>
-  <t-tab-panel label="历史订单" value="1" class="bg-gray-100">
-  <view class="tabs-container">
-  <view class="flex justify-around h-screen bg-gray-100">
-    <!-- 动态绑定 style 属性，根据是否是当前选中的子选项卡来决定字体颜色 -->
-    <text wx:for="{{subTabs}}" wx:key="key" data-value="{{item.value}}" bindtap="onSubTabClick"
-          class="tab: {{currentSubTab === item.value ? 'active' : '#45cd00'}} text-gray-400">
-      {{item.label}}
-    </text>
-  </view>
+  <view>
+    <t-tabs animation="{{ { duration: 0.6 } }}" defaultValue="{{0}}" bind:change="onTabsChange" bind:click="onTabsClick" show-bottom-line="{{show-bottom-line}}" style="{{barStyle}}">
+      <t-tab-panel label="当前订单" value="0" class="bg-gray-100 h-screen">
+        <view wx:if="{{item.data.length > 0}}">
+          <block wx:for="{{item.data}}" wx:for-item="subItem" wx:for-index="idx">
+            <view>{{subItem.name}}</view>
+          </block>
+        </view>
+        <view wx:else>
+          <image src="/static/images/111.jpg" mode="aspectFill" class="w-48 h-48 mt-50 ml-47 pt-10"></image>
+          <view class="ml-49 mt-20 text-gray-800 text-sm">
+            <text>您还没有点餐</text>
+          </view>
+          <view class="ml-46 mt-3 text-gray-800 text-sm"><text>快去犒劳一下自己吧~</text></view>
+          <navigator url="/pages/order/order" open-type="switchTab" class="flex justify-center items-center text-base w-88 h-24 mt-20 ml-52 text-center bg-green-45cd00 text-white rounded-50 ">去点餐</navigator>
+        </view>
+      </t-tab-panel>
+      <t-tab-panel label="历史订单" value="1" class="bg-gray-100">
+        <view class=" px-5 py-5">
+          <view class="flex justify-around items-center">
+            <!-- 动态绑定 style 属性，根据是否是当前选中的子选项卡来决定字体颜色 -->
+            <text wx:for="{{subTabs}}" wx:key="key" data-value="{{item.value}}" bindtap="onSubTabClick" class="tab: {{currentSubTab === item.value ? 'active' : '#45cd00'}} text-gray-400">
+              {{item.label}}
+            </text>
+          </view>
+          <!-- 根据当前选中的子选项卡动态渲染内容 -->
+          <view wx:if="{{currentSubTab === 'all'}}">
+            <view class="bg-white px-5 py-5 mt-10">
+              <view class="flex justify-between items-center">
+                <text class="text-base font-bold">店名</text>
+                <view class="flex items-center">
+                  <text>已取消</text>
+                  <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
+                </view>
+              </view>
+              <view class="flex justify-between items-center mt-3">
+                <text class="text-xs text-gray-500">下单时间xxxx-xx-xx xx:xx:xx</text>
+                <view class="flex items-center">
+                  <text class="text-xs text-gray-500">订单： xxxxxxxxxxxxxx</text>
+                  <t-icon name="copy" class="text-gray-600" size="24rpx" />
+                </view>
+              </view>
+              <view class="mt-5 py-5 border-0 border-t border-solid border-gray-300 flex justify-between items-center">
+                <image src="/static/images/b.jpg" mode="heightFix" class="h-24" />
+                <view class="flex flex-col justify-center">
+                  <text class="text-xs text-right">共1件</text>
+                  <text class="mt-2 text-xs">实付￥26</text>
+                </view>
+              </view>
+            </view>
+            <view class="bg-white px-5 py-5 mt-5">
+              <view class="flex justify-between items-center">
+                <text class="text-base font-bold">店名</text>
+                <view class="flex items-center">
+                  <text>已取消</text>
+                  <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
+                </view>
+              </view>
+              <view class="flex justify-between items-center mt-3">
+                <text class="text-xs text-gray-500">下单时间xxxx-xx-xx xx:xx:xx</text>
+                <view class="flex items-center">
+                  <text class="text-xs text-gray-500">订单： xxxxxxxxxxxxxx</text>
+                  <t-icon name="copy" class="text-gray-600" size="24rpx" />
+                </view>
+              </view>
+              <view class="mt-5 py-5 border-0 border-t border-solid border-gray-300 flex justify-between items-center">
+                <image src="/static/images/b.jpg" mode="heightFix" class="h-24" />
+                <view class="flex flex-col justify-center">
+                  <text class="text-xs text-right">共1件</text>
+                  <text class="mt-2 text-xs">实付￥26</text>
+                </view>
+              </view>
+            </view>
+            <view class="bg-white px-5 py-5 mt-5">
+              <view class="flex justify-between items-center">
+                <text class="text-base font-bold">店名</text>
+                <view class="flex items-center">
+                  <text>已完成</text>
+                  <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
+                </view>
+              </view>
+              <view class="flex justify-between items-center mt-3">
+                <text class="text-xs text-gray-500">xxxx-xx-xx xx:xx:xx</text>
+                <view class="flex items-center">
+                </view>
+              </view>
+              <view class="px-3 mt-3 bg-gray-200 rounded-lg flex justify-between items-center">
+                <view class="flex items-center">
+                  <text class="text-xs">取餐号</text>
+                  <text class="text-2xl">1055</text>
+                </view>
+                <view class="flex items-center">
+                  <text class="text-xs text-gray-500">订单： xxxxxxxxxxxxxx</text>
+                  <t-icon name="copy" class="text-gray-600" size="24rpx" />
+                </view>
+              </view>
+              <view class="mt-5 py-5 border-0 border-t border-solid border-gray-300 flex justify-between items-center">
+                <image src="/static/images/b.jpg" mode="heightFix" class="h-24" />
+                <view class="flex flex-col justify-center">
+                  <text class="text-xs text-right">共1件</text>
+                  <text class="mt-2 text-xs">实付￥26</text>
+                </view>
+              </view>
+              <view class="flex items-center justify-between">
+                <view></view>
+                <view class="text-xs rounded-50 py-2 px-8 border border-solid text-green-500 border-green-500">退款</view>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{currentSubTab === 'pickup'}}">
+            <view></view>
+          </view>
+          <view wx:if="{{currentSubTab === 'delivery'}}">
+            <view></view>
+          </view>
+        </view>
+      </t-tab-panel>
 
-  <!-- 根据当前选中的子选项卡动态渲染内容 -->
-  <view wx:if="{{currentSubTab === 'all'}}">
-    <view></view>
+
+    </t-tabs>
   </view>
-  <view wx:if="{{currentSubTab === 'pickup'}}">
-    <view></view>
-  </view>
-  <view wx:if="{{currentSubTab === 'delivery'}}">
-    <view></view>
-  </view>
-  <view wx:if="{{currentSubTab === 'cz'}}">
-    <view></view>
-  </view>
-  <view wx:if="{{currentSubTab === 'kq'}}">
-    <view></view>
-  </view>
-  <view wx:if="{{currentSubTab === 'qyk'}}">
-    <view></view>
-  </view>
-</view>
-  </t-tab-panel>
- 
-  <!-- 如果有数据，展示数据；否则展示暂无数据-->
-  <view wx:if="{{item.data.length > 0}}">
-  <block wx:for="{{item.data}}" wx:for-item="subItem" wx:for-index="idx">
-  <view>{{subItem.name}}</view>
-  </block>
-  </view>
-  <view wx:else>
-  暂无数据
-  </view>
-</t-tabs>
-</view>
 </view>

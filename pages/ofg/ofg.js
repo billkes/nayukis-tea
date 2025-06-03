@@ -6,23 +6,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    openid:'',
-    token:'',
-    orderlist:{},
-    list:[{
-      title:"当前订单",
-      data:[{
-        name:"振华店",
-        status:1 //0 已完成(历史订单) 1 未完成（当前订单）
+    openid: '',
+    token: '',
+    orderlist: {},
+    list: [{
+      title: "当前订单",
+      data: [{
+        name: "振华店",
+        status: 1 //0 已完成(历史订单) 1 未完成（当前订单）
       }]
-    },{
-      title:"历史订单",
-      data:[{
-        name:"凯德店",
-        status:0 //0 已完成(历史订单) 1 未完成（当前订单）
-      },{
-        name:"海亮店",
-        status:0 //0 已完成(历史订单) 1 未完成（当前订单）
+    }, {
+      title: "历史订单",
+      data: [{
+        name: "凯德店",
+        status: 0 //0 已完成(历史订单) 1 未完成（当前订单）
+      }, {
+        name: "海亮店",
+        status: 0 //0 已完成(历史订单) 1 未完成（当前订单）
       }]
     }]
   },
@@ -31,15 +31,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const openid=wx.getStorageSync('openid');
-    const token =wx.getStorageSync('token');
-    const orderlist =wx.getStorageSync('orderlist')
-    if(openid && token){
+    const openid = wx.getStorageSync('openid');
+    const token = wx.getStorageSync('token');
+    const orderlist = wx.getStorageSync('orderlist')
+    if (openid && token) {
       this.setData({
         openid,
         token
       })
-      if(Object.keys(orderlist).length == 0){
+      if (Object.keys(orderlist).length == 0) {
         this.fetchUserOrders()
       }
       this.setData({
@@ -47,15 +47,15 @@ Page({
       })
     }
   },
-  fetchUserOrders(){
-    orderUtil.getUserOrders(this.data.openid, 1, 10, this.data.token).then(result =>{
+  fetchUserOrders() {
+    orderUtil.getUserOrders(this.data.openid, 1, 10, this.data.token).then(result => {
       this.setData({
         orderlist: result
       })
       wx.setStorageSync('orderlist', result)
-    }).catch(err =>{
+    }).catch(err => {
       console.error('接口请求异常')
-    }).finally(()=>{
+    }).finally(() => {
       console.log('finally')
     })
   },

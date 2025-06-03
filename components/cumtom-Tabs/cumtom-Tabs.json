@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "t-tabs": "../../miniprogram_npm/tdesign-miniprogram/tabs/tabs",
+    "t-icon": "../../miniprogram_npm/tdesign-miniprogram/icon/icon",
     "t-tab-panel": "../../miniprogram_npm/tdesign-miniprogram/tab-panel/tab-panel"
   }
 }

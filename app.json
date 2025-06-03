@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/order/order",
-    "pages/secondPages/qhmd/qhmd",
-    "pages/index/index",
-    "pages/ofg/ofg",
     "pages/mine/mine",
+    "pages/ofg/ofg",
+    "pages/secondPages/qhmd/qhmd",
+    "pages/order/order",
+    "pages/index/index",
     "pages/secondPages/huiyuanqun/huiyuanqun",
     "pages/secondPages/chuzhi/chuzhi",
     "pages/secondPages/hehuoren/hehuoren",

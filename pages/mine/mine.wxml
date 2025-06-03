@@ -1,26 +1,116 @@
 <!--index.wxml-->
-<view class="w-screen h-screen bg-gray-100">
+<scroll-view scroll-y class=" w-screen h-screen bg-gray-100 relative">
+
   <!-- 顶部背景图片 -->
-  <image 
-    src="/static/images/min.jpg" 
-    mode="aspectFill" 
-    class="w-full hs-215"
-  />
-  <view class="-mt-43 pt-26">
+  <view class="h-160 mb-10 relative">
+    <swiper class="h-160 " bindchange="handleSwiperChange" current="{{current}}">
+      <swiper-item>
+        <image src="/static/swipers/my-1.jpg" mode="widthFix" class="w-full" />
+      </swiper-item>
+      <swiper-item>
+        <image src="/static/swipers/my-2.jpg" mode="widthFix" class="w-full" />
+      </swiper-item>
+      <swiper-item>
+        <image src="/static/swipers/my-3.jpg" mode="widthFix" class="w-full" />
+      </swiper-item>
+      <swiper-item>
+        <image src="/static/swipers/my-4.jpg" mode="widthFix" class="w-full" />
+      </swiper-item>
+      <swiper-item>
+        <image src="/static/swipers/my-5.jpg" mode="widthFix" class="w-full" />
+      </swiper-item>
+      <swiper-item>
+        <image src="/static/swipers/my-6.jpg" mode="widthFix" class="w-full" />
+      </swiper-item>
+    </swiper>
+
+    <!-- 定位: 左侧-用户信息、等级 -->
+    <view class="absolute z-10 py-10 px-5 top-5 left-0 ">
+      <view class="font-bold">
+        Hi, x.
+      </view>
+      <view class="mt-10 flex items-center">
+        <image src="{{levelList[current].icon}}" class="w-24 mr-3" mode="widthFix" />
+        <view class="flex justify-center flex-col">
+          <text class="text-xs" style="color: {{levelList[current].color}};">{{level -1 === current ? '当前等级' : level-1<current ? '未获得' :'已获得'}}</text>
+          <text class="font-bold text-xl" style="color: {{levelList[current].color}};">{{levelList[current].label}}</text>
+        </view>
+      </view>
+      <view class="w-32 overflow-hidden ml-5 h-4 mt-5 rounded-50 flex items-center border border-solid" style="border-color: {{levelList[current].color}}">
+        <view class="w-16 bg-blue-500 h-4 rounded-50" style="background-color: {{levelList[current].color}};"></view>
+      </view>
+      <view class="text-xs text-gray-500 px-5 mt-3">
+        您与xxxxxx
+      </view>
+      <view class="text-xs text-gray-500 px-5 mt-3">
+        您与xxxxxx
+      </view>
+    </view>
+
+    <!-- 定位：切换形象 -->
+    <view class="absolute z-10 bottom-4 left-20 w-48 right-0 m-auto py-5 flex justify-center text-base px-5" bind:tap="handleOpen">
+      <t-icon name="refresh" class="text-gray-600 mr-2 px-1 py-1 bg-white rounded-50" size="32rpx" />
+      <text>切换形象</text>
+    </view>
+
+    <!-- 定位: 右侧- -->
+    <view class="absolute z-10 pt-10 top-16 right-0">
+      <view class="flex w-48 flex-col justify-center items-center mt-5">
+        <text class="text-base font-bold">0</text>
+        <view class="flex items-center">
+          <text class="text-xs">券/券包</text>
+          <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
+        </view>
+      </view>
+      <view class="flex w-48 flex-col justify-center items-center mt-5">
+        <text class="text-base font-bold">0</text>
+        <view class="flex items-center">
+          <text class="text-xs">奈雪币</text>
+          <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
+        </view>
+      </view>
+      <view class="flex w-48 flex-col justify-center items-center mt-5">
+        <text class="text-base font-bold">0</text>
+        <view class="flex items-center">
+          <text class="text-xs">余额</text>
+          <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
+        </view>
+      </view>
+      <view class="flex w-48 flex-col justify-center items-center mt-5">
+        <text class="text-base font-bold">0</text>
+        <view class="flex items-center">
+          <text class="text-xs">礼品卡</text>
+          <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
+        </view>
+      </view>
+      <view class="flex items-center rounded-l-20 bg-white shadow-md py-3 mt-5 pl-5">
+        <t-icon name="qrcode" class="text-gray-600" size="32rpx" />
+        <text class="ml-2 ">会员码</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="-mt-10">
     <lineCard></lineCard>
   </view>
-<!-- 轮播图 -->
-<view class="swiper-box p-4 my-1 py-4">
-  <t-swiper
-    style="--td-swiper-radius:3px;--td-swiper-nav-dot-size:17rpx;--td-swiper-nav-dot-color:#A9A9A9;--td-swiper-nav-dot-active-color:#808080;"
-    height="130"
-    autoplay
-    interval="{{interval}}"
-    image-props="{{ { height:'120',width:'100%',mode:'aspectFit'} }}"
-    navigation="{{navigation}}"
-    paginationPosition="{{paginationPosition}}"
-    list="{{swiperList}}"
-  >
-  </t-swiper>
-</view>
-</view>
+
+  <!-- 轮播图 -->
+  <view class="swiper-box p-4 my-1 py-4">
+    <t-swiper style="--td-swiper-radius:3px;--td-swiper-nav-dot-size:17rpx;--td-swiper-nav-dot-color:#A9A9A9;--td-swiper-nav-dot-active-color:#808080;" height="130" autoplay interval="{{interval}}" image-props="{{ { height:'120',width:'100%',mode:'aspectFit'} }}" navigation="{{navigation}}" paginationPosition="{{paginationPosition}}" list="{{swiperList}}">
+    </t-swiper>
+  </view>
+
+  <!-- 定位：切换形象 -->
+  <view wx:if="{{xxShow}}" class="fixed z-10 w-screen h-screen top-0 bottom-0 left-0 right-0 bg-opacity-50 flex flex-col justify-center items-center">
+    <swiper class="h-66 w-screen" current="{{xxCurrent}}" bind:tap="handleXXChange">
+      <swiper-item class="h-66 w-screen flex justify-center items-center">
+        <image class="h-66" src="/static/swipers/figure-1.png" mode="heightFix" />
+      </swiper-item>
+      <swiper-item class="h-66 w-screen flex justify-center items-center">
+        <image class="h-66" src="/static/swipers/figure-2.png" mode="heightFix" />
+      </swiper-item>
+    </swiper>
+    <text class="text-2xl font-bold mt-10">选择会员形象</text>
+    <button type="primary" class="mt-10 rounded-50 w-48" bind:tap="handleSelect">确认</button>
+  </view>
+</scroll-view>
