@@ -32,7 +32,7 @@
               <view class="text-xs font-bold mt-10 ml-5">￥</view>
               <view class=" text-base font-bold mt-8 ml-0">{{itm.price}}</view>
               <view class="text-xs font-bold mt-10 ml-1 text-gray-500">起</view>
-              <navigator url="/pages/secondPages/menu/menu" open-type="redirect" class="text-base w-12 h-10 mt-8 ml-45 text-center bg-green-45cd00 text-white rounded-50" style="position: absolute; right: 10px;">+</navigator>
+              <view bind:tap="handleGoto" data-uid="{{itm.id}}" class="text-base w-12 h-10 mt-8 ml-45 text-center bg-green-45cd00 text-white rounded-50" style="position: absolute; right: 10px;">+</view>
             </view>
           </view>
         </navigator>

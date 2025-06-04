@@ -33,7 +33,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    okQhmd:{},
+    okQhmd: {},
     topNodeHeight: 0,
     photoNodeHeight: 0,
     categories: [],
@@ -485,7 +485,13 @@ Page({
       });
     }
   },
-
+  handleGoto(e) {
+    // console.log(e);
+    const id = e.currentTarget.dataset.uid
+    wx.navigateTo({
+      url: '/pages/secondPages/menu/menu?id=' + id,
+    })
+  },
   getProductList: function () {
     wx.request({
       url: 'https://your-api.com/products',
@@ -684,7 +690,9 @@ Page({
    */
   onShow() {
     const okQhmd = wx.getStorageSync('okQhmd') || {}
-    this.setData({okQhmd})
+    this.setData({
+      okQhmd
+    })
   },
 
   /**

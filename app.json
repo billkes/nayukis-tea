@@ -1,10 +1,13 @@
 {
   "pages": [
-    "pages/mine/mine",
-    "pages/ofg/ofg",
-    "pages/secondPages/qhmd/qhmd",
-    "pages/order/order",
     "pages/index/index",
+    "pages/ofg/ofg",
+    "pages/trolley/trolley",
+    "pages/secondPages/menu/menu",
+    "pages/order/order",
+    "pages/secondPages/trolley/trolley",
+    "pages/mine/mine",
+    "pages/secondPages/qhmd/qhmd",
     "pages/secondPages/huiyuanqun/huiyuanqun",
     "pages/secondPages/chuzhi/chuzhi",
     "pages/secondPages/hehuoren/hehuoren",
@@ -26,7 +29,6 @@
     "pages/secondPages/three/three",
     "pages/secondPages/six/six",
     "pages/secondPages/five/five",
-    "pages/secondPages/menu/menu",
     "pages/cat/cat",
     "pages/secondPages/userinfo/userinfo"
   ],

@@ -27,6 +27,18 @@ Page({
     }]
   },
 
+  fetchUserOrders() {
+    orderUtil.getUserOrders(this.data.openid, 1, 10, this.data.token).then(result => {
+      this.setData({
+        orderlist: result
+      })
+      wx.setStorageSync('orderlist', result)
+    }).catch(err => {
+      console.error('接口请求异常')
+    }).finally(() => {
+      console.log('finally')
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -39,25 +51,13 @@ Page({
         openid,
         token
       })
-      if (Object.keys(orderlist).length == 0) {
-        this.fetchUserOrders()
-      }
+      // if (Object.keys(orderlist).length == 0) {
+      this.fetchUserOrders()
+      // }
       this.setData({
         orderlist
       })
     }
-  },
-  fetchUserOrders() {
-    orderUtil.getUserOrders(this.data.openid, 1, 10, this.data.token).then(result => {
-      this.setData({
-        orderlist: result
-      })
-      wx.setStorageSync('orderlist', result)
-    }).catch(err => {
-      console.error('接口请求异常')
-    }).finally(() => {
-      console.log('finally')
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

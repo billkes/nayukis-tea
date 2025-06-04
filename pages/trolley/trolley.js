@@ -1,3 +1,4 @@
+const orderUtils = require('../../utils/order')
 Page({
   data: {
     dineInSelected: true, // 默认选中店内堂食
@@ -7,15 +8,14 @@ Page({
     orderData: {
       orderId: "order" + Date.now(),
       amount: 0.01,
-      description: "订单order" + Date.now() +"支付",
+      description: "订单order" + Date.now() + "支付",
       openid: "oLdZf7Hckxk3Udup67UOZRmcl8WA",
-      products: [
-        {
+      products: [{
           id: "01",
           name: "滇西树番茄双抗小红瓶",
-          aa1:"每日500蔬果瓶",
-          aa2:"维C快充",
-          text:"云南山野|提亮之酸",
+          aa1: "每日500蔬果瓶",
+          aa2: "维C快充",
+          text: "云南山野|提亮之酸",
           price: 19,
           image: "/static/images/zxs.jpg",
           quantity: 1
@@ -23,14 +23,14 @@ Page({
         {
           id: "02",
           name: "奈雪瘦瘦小绿瓶",
-          aa1:"每日500蔬果瓶",
-          aa2:"瘦瘦轻盈",
-          text:"膳食纤维 | 超级食材羽衣&橙",
+          aa1: "每日500蔬果瓶",
+          aa2: "瘦瘦轻盈",
+          text: "膳食纤维 | 超级食材羽衣&橙",
           price: 19,
           image: "/static/images/qwe.jpg",
           quantity: 1
         },
-        
+
       ],
       metadata: {
         source: "miniprogram",
@@ -49,18 +49,15 @@ Page({
     pickupTime: '立即取餐',
     dineInOrTakeAway: 'dineIn',
     cupMessage: '',
-    cartItems: [
-      {
-        id: '01',
-        name: '奈雪畅畅小绿瓶',
-        image: '/static/images/aaa.jpg',
-        selection: '冰/不另外加糖/中杯500ml/限量方形杯/默认',
-        quantity: 1,
-        totalPrice: 19
-      }
-    ],
-    recommendedProducts: [
-      {
+    cartItems: [{
+      id: '01',
+      name: '奈雪畅畅小绿瓶',
+      image: '/static/images/aaa.jpg',
+      selection: '冰/不另外加糖/中杯500ml/限量方形杯/默认',
+      quantity: 1,
+      totalPrice: 19
+    }],
+    recommendedProducts: [{
         id: '02',
         name: '松松咸蛋黄嘟嘟',
         image: '/static/images/bbb.jpg',
@@ -133,15 +130,32 @@ Page({
       url: '/pages/payment/payment'
     });
   },
+  onLoad() {
+    const token = wx.getStorageSync('token');
+    const openid = wx.getStorageSync('openid');
+
+    // 格式化时间显示
+    const clientTime = this.data.orderData.metadata.clientTime;
+    const date = new Date(clientTime); //将一个表示时间的字符串（clientTime）解析为 JavaScript 的日期对象
+    const formattedTime = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}`;
+
+    this.setData({
+      token,
+      'orderData.openid': openid || this.data.orderData.openid,
+      formattedTime
+    });
+  },
   onShow() {
     const cartItems = wx.getStorageSync('shoppingCart') || [];
-    this.setData({ cartItems });
+    this.setData({
+      cartItems
+    });
   },
   createOrder() {
     if (this.data.isCreatingOrder) {
       return;
     }
-    
+
     if (!this.data.token) {
       wx.showToast({
         title: '请先登录',
@@ -149,15 +163,15 @@ Page({
       });
       return;
     }
-    
+
     this.setData({
       isCreatingOrder: true
     });
-    
+
     // 更新订单的时间戳
     const orderData = this.data.orderData;
     orderData.metadata.clientTime = new Date().toISOString();
-    
+
     // 调用支付流程
     orderUtils.processPayment(orderData, this.data.token)
       .then(result => {
@@ -204,10 +218,10 @@ Page({
   },
   loadCartItems() {
     const cartItems = wx.getStorageSync('shoppingCart') || [];
-    
+
     // 计算总价
     const totalPrice = cartItems.reduce((sum, item) => sum + item.totalPrice, 0);
-    
+
     this.setData({
       cartItems,
       totalPrice
@@ -232,7 +246,7 @@ Page({
   decreaseQuantity(e) {
     const index = e.currentTarget.dataset.index;
     let cartItems = [...this.data.cartItems];
-    
+
     if (cartItems[index].quantity > 1) {
       cartItems[index].quantity -= 1;
       cartItems[index].totalPrice = cartItems[index].price * cartItems[index].quantity;
@@ -248,7 +262,7 @@ Page({
   increaseQuantity(e) {
     const index = e.currentTarget.dataset.index;
     let cartItems = [...this.data.cartItems];
-    
+
     cartItems[index].quantity += 1;
     cartItems[index].totalPrice = cartItems[index].price * cartItems[index].quantity;
     wx.setStorageSync('shoppingCart', cartItems);

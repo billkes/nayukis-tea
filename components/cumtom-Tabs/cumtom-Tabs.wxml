@@ -27,85 +27,39 @@
           </view>
           <!-- 根据当前选中的子选项卡动态渲染内容 -->
           <view wx:if="{{currentSubTab === 'all'}}">
-            <view class="bg-white px-5 py-5 mt-10">
+            <view class="bg-white px-5 py-5 {{index === 0 ? 'mt-10' : ' mt-5' }}" wx:for="{{arrayList.orders}}" wx:key="*this">
               <view class="flex justify-between items-center">
                 <text class="text-base font-bold">店名</text>
                 <view class="flex items-center">
-                  <text>已取消</text>
+                  <text>{{statusDict[item.status]}}</text>
                   <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
                 </view>
               </view>
               <view class="flex justify-between items-center mt-3">
-                <text class="text-xs text-gray-500">下单时间xxxx-xx-xx xx:xx:xx</text>
-                <view class="flex items-center">
-                  <text class="text-xs text-gray-500">订单： xxxxxxxxxxxxxx</text>
-                  <t-icon name="copy" class="text-gray-600" size="24rpx" />
-                </view>
-              </view>
-              <view class="mt-5 py-5 border-0 border-t border-solid border-gray-300 flex justify-between items-center">
-                <image src="/static/images/b.jpg" mode="heightFix" class="h-24" />
-                <view class="flex flex-col justify-center">
-                  <text class="text-xs text-right">共1件</text>
-                  <text class="mt-2 text-xs">实付￥26</text>
-                </view>
-              </view>
-            </view>
-            <view class="bg-white px-5 py-5 mt-5">
-              <view class="flex justify-between items-center">
-                <text class="text-base font-bold">店名</text>
-                <view class="flex items-center">
-                  <text>已取消</text>
-                  <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
-                </view>
-              </view>
-              <view class="flex justify-between items-center mt-3">
-                <text class="text-xs text-gray-500">下单时间xxxx-xx-xx xx:xx:xx</text>
-                <view class="flex items-center">
-                  <text class="text-xs text-gray-500">订单： xxxxxxxxxxxxxx</text>
-                  <t-icon name="copy" class="text-gray-600" size="24rpx" />
-                </view>
-              </view>
-              <view class="mt-5 py-5 border-0 border-t border-solid border-gray-300 flex justify-between items-center">
-                <image src="/static/images/b.jpg" mode="heightFix" class="h-24" />
-                <view class="flex flex-col justify-center">
-                  <text class="text-xs text-right">共1件</text>
-                  <text class="mt-2 text-xs">实付￥26</text>
-                </view>
-              </view>
-            </view>
-            <view class="bg-white px-5 py-5 mt-5">
-              <view class="flex justify-between items-center">
-                <text class="text-base font-bold">店名</text>
-                <view class="flex items-center">
-                  <text>已完成</text>
-                  <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
-                </view>
-              </view>
-              <view class="flex justify-between items-center mt-3">
-                <text class="text-xs text-gray-500">xxxx-xx-xx xx:xx:xx</text>
+                <text class="text-xs text-gray-500">{{item.createdAt}}</text>
                 <view class="flex items-center">
                 </view>
               </view>
-              <view class="px-3 mt-3 bg-gray-200 rounded-lg flex justify-between items-center">
+              <view class="px-3 mt-3 bg-gray-200 rounded-lg flex justify-between items-center" wx:if="{{item.status === 'SUCCESS'}}">
                 <view class="flex items-center">
                   <text class="text-xs">取餐号</text>
-                  <text class="text-2xl">1055</text>
+                  <text class="text-2xl">{{item.id}}</text>
                 </view>
                 <view class="flex items-center">
-                  <text class="text-xs text-gray-500">订单： xxxxxxxxxxxxxx</text>
+                  <text class="text-xs text-gray-500">{{item.description}}</text>
                   <t-icon name="copy" class="text-gray-600" size="24rpx" />
                 </view>
               </view>
-              <view class="mt-5 py-5 border-0 border-t border-solid border-gray-300 flex justify-between items-center">
-                <image src="/static/images/b.jpg" mode="heightFix" class="h-24" />
+              <view class="mt-5 py-5 border-0 border-t border-solid border-gray-300 flex justify-between items-center" wx:for="{{item.products}}" wx:key="*this" wx:for-item="itm">
+                <image src="{{itm.image || '/static/images/b.jpg' }}" mode="heightFix" class="h-24" />
                 <view class="flex flex-col justify-center">
-                  <text class="text-xs text-right">共1件</text>
-                  <text class="mt-2 text-xs">实付￥26</text>
+                  <text class="text-xs text-right">共{{itm.quantity}}件</text>
+                  <text class="mt-2 text-xs">{{item.status === 'SUCCESS'?'实付':'应付'}}￥{{itm.price}}</text>
                 </view>
               </view>
-              <view class="flex items-center justify-between">
+              <view class="flex items-center justify-between" wx:if="{{item.status === 'SUCCESS'}}">
                 <view></view>
-                <view class="text-xs rounded-50 py-2 px-8 border border-solid text-green-500 border-green-500">退款</view>
+                <view class="text-xs rounded-50 py-2 px-8 border border-solid text-green-500 border-green-500" bind:tap="handleTK" data-order="{{item.id}}">退款</view>
               </view>
             </view>
           </view>

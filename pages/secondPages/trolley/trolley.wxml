@@ -1,0 +1,9 @@
+<!--pages/secondPages/trolley/trolley.wxml-->
+<text>pages/secondPages/trolley/trolley.wxml</text>
+
+<button bind:tap="handlePay">测试支付</button>
+<button bind:tap="handleGetList">获取订单列表</button>
+
+<view wx:for="{{orders}}" wx:key="*this">
+  {{item.createdAt}}
+</view>

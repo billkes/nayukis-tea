@@ -4,46 +4,37 @@
   <view class="drink-image">
     <image src="{{drinkInfo.image || 'https://picsum.photos/400/200?food=default'}}" mode="aspectFill"></image>
   </view>
-  
+
   <!-- 饮品名称和描述 -->
   <view class="header">
     <text class="name">{{drinkInfo.name}}</text>
     <text class="desc">{{drinkInfo.desc}}</text>
   </view>
-  
+
   <!-- 甜度说明 -->
   <view class="section">
     <text class="section-title">{{drinkInfo.sweetness}}</text>
     <text class="note">{{drinkInfo.sweetnessDesc}}</text>
   </view>
-  
+
   <!-- 杯型选择 -->
   <view class="section">
     <text class="section-title">杯型</text>
     <view class="options">
       <block wx:for="{{drinkInfo.sizeOptions}}" wx:key="value">
-        <view 
-          class="option {{selectedSize === item.value ? 'active' : ''}}"
-          bindtap="selectSize"
-          data-size="{{item.value}}"
-          data-price="{{item.price}}"
-        >
+        <view class="option {{selectedSize === item.value ? 'active' : ''}}" bindtap="selectSize" data-size="{{item.value}}" data-price="{{item.price}}">
           {{item.text}} {{item.price > 0 ? '+¥' + item.price : ''}}
         </view>
       </block>
     </view>
   </view>
-  
+
   <!-- 主题杯选择 -->
   <view class="section">
     <text class="section-title">主题杯可选</text>
     <view class="options">
       <block wx:for="{{drinkInfo.themeOptions}}" wx:key="value">
-        <view 
-          class="option {{selectedtheme === item.value ? 'active' : ''}}"
-          bindtap="selectTheme"
-          data-theme="{{item.value}}"
-        >
+        <view class="option {{selectedtheme === item.value ? 'active' : ''}}" bindtap="selectTheme" data-theme="{{item.value}}">
           {{item.text}}
         </view>
       </block>
@@ -55,11 +46,7 @@
     <text class="section-title">口味</text>
     <view class="options">
       <block wx:for="{{drinkInfo.tasteOptions}}" wx:key="value">
-        <view 
-          class="option {{selectedtaste === item.value ? 'active' : ''}}"
-          bindtap="selectTaste"
-          data-taste="{{item.value}}"
-        >
+        <view class="option {{selectedtaste === item.value ? 'active' : ''}}" bindtap="selectTaste" data-taste="{{item.value}}">
           {{item.text}}
         </view>
       </block>
@@ -67,16 +54,12 @@
   </view>
 
 
-    <!-- 甜度选择 -->
-    <view class="section">
+  <!-- 甜度选择 -->
+  <view class="section">
     <text class="section-title">甜度</text>
     <view class="options">
       <block wx:for="{{drinkInfo.sweetOptions}}" wx:key="value">
-        <view 
-          class="option {{selectedsweet === item.value ? 'active' : ''}}"
-          bindtap="selectSweet"
-          data-sweet="{{item.value}}"
-        >
+        <view class="option {{selectedsweet === item.value ? 'active' : ''}}" bindtap="selectSweet" data-sweet="{{item.value}}">
           {{item.text}}
         </view>
       </block>
@@ -88,50 +71,37 @@
     <text class="section-title">温度</text>
     <view class="options">
       <block wx:for="{{drinkInfo.tempOptions}}" wx:key="value">
-        <view 
-          class="option {{selectedTemp === item.value ? 'active' : ''}}"
-          bindtap="selectTemp"
-          data-temp="{{item.value}}"
-        >
+        <view class="option {{selectedTemp === item.value ? 'active' : ''}}" bindtap="selectTemp" data-temp="{{item.value}}">
           {{item.text}}
         </view>
       </block>
     </view>
   </view>
-  
+
   <!-- 茶底选择 -->
   <view class="section">
     <text class="section-title">茶底</text>
     <view class="options">
       <block wx:for="{{drinkInfo.teaOptions}}" wx:key="value">
-        <view 
-          class="option {{selectedTea === item.value ? 'active' : ''}}"
-          bindtap="selectTea"
-          data-tea="{{item.value}}"
-        >
+        <view class="option {{selectedTea === item.value ? 'active' : ''}}" bindtap="selectTea" data-tea="{{item.value}}">
           {{item.text}}
         </view>
       </block>
     </view>
   </view>
-  
+
   <!-- 加料选择 -->
   <view class="section">
     <text class="section-title">加料</text>
     <view class="options">
       <block wx:for="{{drinkInfo.toppingOptions}}" wx:key="value">
-        <view 
-          class="option {{selectedTopping === item.value ? 'active' : ''}}"
-          bindtap="selectTopping"
-          data-topping="{{item.value}}"
-          data-price="{{item.price}}"
-        >
+        <view class="option {{selectedTopping === item.value ? 'active' : ''}}" bindtap="selectTopping" data-topping="{{item.value}}" data-price="{{item.price}}">
           {{item.text}} +¥{{item.price}}
         </view>
       </block>
     </view>
   </view>
-  
+
 
 
   <view class="footer">
@@ -142,11 +112,11 @@
     <text class="selection">{{currentSelection}}</text>
     <view class="section">
       <view class="cart-actions">
-  <button bindtap="decreaseQuantity">-</button>
-  <text>{{quantity}}</text>
-  <button bindtap="increaseQuantity">+</button>
-</view>
-  </view>
+        <button bindtap="decreaseQuantity">-</button>
+        <text>{{quantity}}</text>
+        <button bindtap="increaseQuantity">+</button>
+      </view>
+    </view>
     <button class="add-btn" bindtap="addToCart">加入购物车</button>
   </view>
 </view>
