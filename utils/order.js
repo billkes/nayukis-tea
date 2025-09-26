@@ -1,4 +1,5 @@
 const { BASE_URL } = require('./config');
+const { processOrderProducts } = require('./mock');
 
 /**
  * 创建订单
@@ -219,13 +220,14 @@ const getUserOrders = (openid, page = 1, pageSize = 10, token) => {
             
             const formattedTime = `${createdAt.getFullYear()}-${String(createdAt.getMonth() + 1).padStart(2, '0')}-${String(createdAt.getDate()).padStart(2, '0')} ${String(createdAt.getHours()).padStart(2, '0')}:${String(createdAt.getMinutes()).padStart(2, '0')}`;
             
-            // 确保商品数组存在
+            // 确保商品数组存在并使用映射表对齐数据
             const products = order.products || order.items || [];
+            const alignedProducts = processOrderProducts(products);
             
             return {
               ...order,
               orderId,
-              products,
+              products: alignedProducts,
               formattedTime
             };
           });
@@ -376,13 +378,14 @@ const getOrderDetail = (orderId, token) => {
           
           const formattedTime = `${createdAt.getFullYear()}-${String(createdAt.getMonth() + 1).padStart(2, '0')}-${String(createdAt.getDate()).padStart(2, '0')} ${String(createdAt.getHours()).padStart(2, '0')}:${String(createdAt.getMinutes()).padStart(2, '0')}`;
           
-          // 确保商品数组存在
+          // 确保商品数组存在并使用映射表对齐数据
           const products = order.products || order.items || [];
+          const alignedProducts = processOrderProducts(products);
           
           const processedOrder = {
             ...order,
             orderId,
-            products,
+            products: alignedProducts,
             formattedTime
           };
           

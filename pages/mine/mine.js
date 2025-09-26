@@ -72,7 +72,6 @@ Page({
   },
 
   handleSwiperChange(e) {
-    // console.log(e.detail.current);
     const current = e.detail.current
     this.setData({
       current
@@ -80,12 +79,48 @@ Page({
   },
 
   handleXXChange(e) {
-    // console.log(e.detail.current);
     const xxCurrent = e.detail.current
     this.setData({
       xxCurrent: xxCurrent
 
     })
+  },
+
+  /**
+   * 跳转到会员特权页面
+   */
+  handleVipPrivilege() {
+    wx.navigateTo({
+      url: '/pages/secondPages/nxbsd/nxbsd'
+    });
+  },
+
+  /**
+   * 跳转到每日签到页面
+   */
+  handleSignIn() {
+    wx.navigateTo({
+      url: '/pages/sign-in/sign-in'
+    });
+  },
+
+  /**
+   * 显示会员码
+   */
+  handleMemberCode() {
+    wx.showToast({
+      title: '功能开发中',
+      icon: 'none'
+    });
+  },
+
+  /**
+   * 跳转到储值有礼页面
+   */
+  handleRecharge() {
+    wx.navigateTo({
+      url: '/pages/recharge/recharge'
+    });
   },
 
   /**

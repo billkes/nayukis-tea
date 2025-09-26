@@ -1,0 +1,90 @@
+<!--pages/sign-in/sign-in.wxml-->
+<view class="w-screen h-screen bg-gray-100">
+  <!-- 顶部导航栏 -->
+  <view class="flex items-center justify-between px-5 py-3 bg-white border-b border-gray-200">
+    <view class="flex items-center" bindtap="handleBack">
+      <t-icon name="chevron-left" size="40rpx" class="text-gray-600" />
+      <text class="ml-2 text-base">返回</text>
+    </view>
+    <text class="text-lg font-bold">每日签到</text>
+    <view class="w-16"></view>
+  </view>
+
+  <!-- 签到内容区域 -->
+  <view class="px-5 py-5">
+    <!-- 奈雪币展示 -->
+    <view class="bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-lg p-5 mb-5 text-white">
+      <view class="flex justify-between items-center">
+        <view>
+          <text class="text-lg">我的奈雪币</text>
+          <view class="flex items-center mt-2">
+            <text class="text-3xl font-bold">{{naixueCoins}}</text>
+            <text class="ml-2 text-sm">币</text>
+          </view>
+        </view>
+        <view class="text-right">
+          <text class="text-sm">连续签到</text>
+          <view class="text-xl font-bold mt-1">{{signedDays.length}}天</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 月份显示 -->
+    <view class="flex justify-between items-center mb-4">
+      <text class="text-lg font-bold">{{currentMonth}}</text>
+      <text class="text-sm text-gray-500">今日已签到</text>
+    </view>
+
+    <!-- 星期标题 -->
+    <view class="grid grid-cols-7 gap-1 mb-2">
+      <view class="text-center text-xs text-gray-500 py-2">日</view>
+      <view class="text-center text-xs text-gray-500 py-2">一</view>
+      <view class="text-center text-xs text-gray-500 py-2">二</view>
+      <view class="text-center text-xs text-gray-500 py-2">三</view>
+      <view class="text-center text-xs text-gray-500 py-2">四</view>
+      <view class="text-center text-xs text-gray-500 py-2">五</view>
+      <view class="text-center text-xs text-gray-500 py-2">六</view>
+    </view>
+
+    <!-- 日历网格 -->
+    <view class="grid grid-cols-7 gap-1 mb-5">
+      <view wx:for="{{days}}" wx:key="*this" class="aspect-square flex items-center justify-center">
+        <view wx:if="{{item.isCurrentMonth}}" 
+              class="w-10 h-10 rounded-full flex items-center justify-center {{item.isToday ? 'bg-yellow-400 text-white' : item.isSigned ? 'bg-green-100 text-green-600' : 'bg-white text-gray-700'}}">
+          <text class="{{item.isToday ? 'font-bold' : ''}}">{{item.day}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 签到按钮 -->
+    <view wx:if="{{!signedDays.includes(currentDay)}}" class="flex justify-center">
+      <view class="w-80 h-12 flex items-center justify-center bg-yellow-500 text-white rounded-full font-bold" bindtap="handleSignIn">
+        立即签到
+      </view>
+    </view>
+    <view wx:else class="flex justify-center">
+      <view class="w-80 h-12 flex items-center justify-center bg-gray-300 text-gray-600 rounded-full font-bold">
+        今日已签到
+      </view>
+    </view>
+
+    <!-- 签到规则 -->
+    <view class="mt-8 bg-white rounded-lg p-4">
+      <text class="text-base font-bold mb-3 block">签到规则</text>
+      <view class="space-y-2">
+        <view class="flex items-center">
+          <view class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></view>
+          <text class="text-sm text-gray-600">每日签到可获得10奈雪币</text>
+        </view>
+        <view class="flex items-center">
+          <view class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></view>
+          <text class="text-sm text-gray-600">连续签到7天额外奖励50奈雪币</text>
+        </view>
+        <view class="flex items-center">
+          <view class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></view>
+          <text class="text-sm text-gray-600">漏签可重新开始连续签到计数</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

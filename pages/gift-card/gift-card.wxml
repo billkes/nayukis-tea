@@ -1,0 +1,221 @@
+<!--pages/gift-card/gift-card.wxml-->
+<view class="w-screen h-screen bg-gray-100">
+  <!-- 顶部导航栏 -->
+  <view class="flex items-center justify-between px-5 py-3 bg-white border-b border-gray-200">
+    <view class="flex items-center" bindtap="handleBack">
+      <t-icon name="chevron-left" size="40rpx" class="text-gray-600" />
+      <text class="ml-2 text-base">返回</text>
+    </view>
+    <text class="text-lg font-bold">礼品卡</text>
+    <view class="w-16"></view>
+  </view>
+
+  <!-- 标签页切换 -->
+  <view class="bg-white px-5 py-3 border-b border-gray-200">
+    <view class="flex space-x-8">
+      <view class="pb-2 {{currentTab === 'buy' ? 'border-b-2 border-green-500 text-green-500' : 'text-gray-500'}}" 
+            bindtap="handleTabChange" 
+            data-tab="buy">
+        <text class="text-base font-medium">购买礼品卡</text>
+      </view>
+      <view class="pb-2 {{currentTab === 'my' ? 'border-b-2 border-green-500 text-green-500' : 'text-gray-500'}}" 
+            bindtap="handleTabChange" 
+            data-tab="my">
+        <text class="text-base font-medium">我的礼品卡</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <scroll-view scroll-y class="flex-1 bg-gray-100">
+    <!-- 购买礼品卡页面 -->
+    <view wx:if="{{currentTab === 'buy'}}" class="px-5 py-5">
+      <!-- 标题 -->
+      <view class="mb-6">
+        <text class="text-2xl font-bold text-gray-800">购买礼品卡</text>
+        <view class="mt-2 text-gray-500">
+          <text>选择心仪的礼品卡，传递温暖心意</text>
+        </view>
+      </view>
+
+      <!-- 礼品卡横向滑动列表 -->
+      <scroll-view scroll-x class="whitespace-nowrap mb-6">
+        <view wx:for="{{giftCards}}" wx:key="*this" class="inline-block w-72 mr-4 bg-white rounded-lg shadow-md overflow-hidden">
+          <image src="{{item.image}}" mode="aspectFill" class="w-full h-40" />
+          <view class="p-4">
+            <view class="flex justify-between items-start mb-2">
+              <view>
+                <text class="text-lg font-bold text-gray-800">{{item.name}}</text>
+                <view class="mt-1">
+                  <text class="text-sm text-gray-500">{{item.description}}</text>
+                </view>
+              </view>
+              <view class="text-right">
+                <text class="text-xl font-bold text-red-500">¥{{item.price}}</text>
+                <view class="mt-1">
+                  <text class="text-xs text-gray-500">{{item.validDays}}天有效</text>
+                </view>
+              </view>
+            </view>
+            <view class="w-full bg-green-500 text-white text-center py-2 rounded-lg font-medium mt-3" 
+                  bindtap="handleBuyCard" 
+                  data-card="{{item}}">
+              立即购买
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+
+      <!-- 购买说明 -->
+      <view class="bg-white rounded-lg p-4">
+        <text class="text-base font-bold mb-3 block">购买说明</text>
+        <view class="space-y-2">
+          <view class="flex items-start">
+            <view class="w-2 h-2 bg-green-500 rounded-full mr-2 mt-2"></view>
+            <text class="text-sm text-gray-600">礼品卡可赠送好友，也可自己使用</text>
+          </view>
+          <view class="flex items-start">
+            <view class="w-2 h-2 bg-green-500 rounded-full mr-2 mt-2"></view>
+            <text class="text-sm text-gray-600">礼品卡自购买之日起{{giftCards[0].validDays}}天内有效</text>
+          </view>
+          <view class="flex items-start">
+            <view class="w-2 h-2 bg-green-500 rounded-full mr-2 mt-2"></view>
+            <text class="text-sm text-gray-600">礼品卡可用于奈雪的茶全国门店消费</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 我的礼品卡页面 -->
+    <view wx:if="{{currentTab === 'my'}}" class="px-5 py-5">
+      <!-- 标题 -->
+      <view class="mb-6">
+        <text class="text-2xl font-bold text-gray-800">我的礼品卡</text>
+        <view class="mt-2 text-gray-500">
+          <text>管理您的礼品卡，查看使用记录</text>
+        </view>
+      </view>
+
+      <!-- 礼品卡列表（静态展示） -->
+      <view class="space-y-4">
+        <view class="bg-white rounded-lg shadow-md overflow-hidden">
+          <view class="bg-gradient-to-r from-purple-400 to-pink-400 p-4 text-white">
+            <view class="flex justify-between items-center">
+              <view>
+                <text class="text-lg font-bold">奈雪礼品卡</text>
+                <view class="mt-1">
+                  <text class="text-sm opacity-90">余额：¥100.00</text>
+                </view>
+              </view>
+              <view class="text-right">
+                <text class="text-sm opacity-90">卡号</text>
+                <view class="mt-1 font-mono">
+                  <text class="text-sm">**** **** **** 1234</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="p-4">
+            <view class="flex justify-between items-center text-sm text-gray-500 mb-3">
+              <text>有效期至：2025-12-31</text>
+              <text class="text-green-500">有效</text>
+            </view>
+            <view class="flex space-x-3">
+              <view class="flex-1 bg-green-500 text-white text-center py-2 rounded-lg font-medium" 
+                    bindtap="handleViewCard">
+                查看详情
+              </view>
+              <view class="flex-1 bg-gray-200 text-gray-700 text-center py-2 rounded-lg font-medium">
+                赠送好友
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="bg-white rounded-lg shadow-md overflow-hidden opacity-60">
+          <view class="bg-gradient-to-r from-gray-400 to-gray-500 p-4 text-white">
+            <view class="flex justify-between items-center">
+              <view>
+                <text class="text-lg font-bold">节日限定卡</text>
+                <view class="mt-1">
+                  <text class="text-sm opacity-90">余额：¥0.00</text>
+                </view>
+              </view>
+              <view class="text-right">
+                <text class="text-sm opacity-90">卡号</text>
+                <view class="mt-1 font-mono">
+                  <text class="text-sm">**** **** **** 5678</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="p-4">
+            <view class="flex justify-between items-center text-sm text-gray-500 mb-3">
+              <text>有效期至：2025-06-30</text>
+              <text class="text-red-500">已过期</text>
+            </view>
+            <view class="flex space-x-3">
+              <view class="flex-1 bg-gray-300 text-gray-500 text-center py-2 rounded-lg font-medium">
+                查看详情
+              </view>
+              <view class="flex-1 bg-gray-300 text-gray-500 text-center py-2 rounded-lg font-medium">
+                赠送好友
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 历史记录 -->
+      <view class="mt-8 bg-white rounded-lg p-4">
+        <text class="text-base font-bold mb-3 block">历史记录</text>
+        <view class="space-y-3">
+          <view class="flex justify-between items-center py-2 border-b border-gray-100">
+            <view>
+              <text class="text-sm font-medium">购买礼品卡</text>
+              <view class="mt-1">
+                <text class="text-xs text-gray-500">2025-06-20 14:30</text>
+              </view>
+            </view>
+            <view class="text-right">
+              <text class="text-sm text-red-500">-¥100.00</text>
+              <view class="mt-1">
+                <text class="text-xs text-gray-500">微信支付</text>
+              </view>
+            </view>
+          </view>
+          
+          <view class="flex justify-between items-center py-2 border-b border-gray-100">
+            <view>
+              <text class="text-sm font-medium">礼品卡消费</text>
+              <view class="mt-1">
+                <text class="text-xs text-gray-500">2025-06-18 10:15</text>
+              </view>
+            </view>
+            <view class="text-right">
+              <text class="text-sm text-green-500">-¥25.00</text>
+              <view class="mt-1">
+                <text class="text-xs text-gray-500">奈雪礼品卡</text>
+              </view>
+            </view>
+          </view>
+          
+          <view class="flex justify-between items-center py-2">
+            <view>
+              <text class="text-sm font-medium">获赠礼品卡</text>
+              <view class="mt-1">
+                <text class="text-xs text-gray-500">2025-06-15 16:45</text>
+              </view>
+            </view>
+            <view class="text-right">
+              <text class="text-sm text-green-500">+¥200.00</text>
+              <view class="mt-1">
+                <text class="text-xs text-gray-500">好友赠送</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

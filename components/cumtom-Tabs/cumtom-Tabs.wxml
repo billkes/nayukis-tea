@@ -57,7 +57,14 @@
                   <text class="mt-2 text-xs">{{item.status === 'SUCCESS'?'实付':'应付'}}￥{{itm.price}}</text>
                 </view>
               </view>
-              <view class="flex items-center justify-between" wx:if="{{item.status === 'SUCCESS'}}">
+              <view class="flex items-center justify-between mt-3">
+                <view class="text-sm text-gray-500">点击查看详情</view>
+                <view bindtap="handleViewDetail" data-order="{{item.id}}" class="flex items-center">
+                  <text class="text-sm text-blue-500">订单详情</text>
+                  <t-icon name="chevron-right" class="text-blue-500" size="24rpx" />
+                </view>
+              </view>
+              <view class="flex items-center justify-between" wx:if="{{item.status === 'SUCCESS' && item.status !== 'REFUND'}}">
                 <view></view>
                 <view class="text-xs rounded-50 py-2 px-8 border border-solid text-green-500 border-green-500" bind:tap="handleTK" data-order="{{item.id}}">退款</view>
               </view>

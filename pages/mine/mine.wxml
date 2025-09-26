@@ -94,9 +94,46 @@
     <lineCard></lineCard>
   </view>
 
+  <!-- 功能入口区域 -->
+  <view class="bg-white mx-4 my-4 rounded-lg p-4">
+    <view class="grid grid-cols-4 gap-4">
+      <!-- 会员特权 -->
+      <view class="flex flex-col items-center" bindtap="handleVipPrivilege">
+        <view class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-2">
+          <t-icon name="crown" class="text-yellow-600" size="40rpx" />
+        </view>
+        <text class="text-xs text-gray-700">会员特权</text>
+      </view>
+      
+      <!-- 每日签到 -->
+      <view class="flex flex-col items-center" bindtap="handleSignIn">
+        <view class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-2">
+          <t-icon name="calendar" class="text-green-600" size="40rpx" />
+        </view>
+        <text class="text-xs text-gray-700">每日签到</text>
+      </view>
+      
+      <!-- 会员码 -->
+      <view class="flex flex-col items-center" bindtap="handleMemberCode">
+        <view class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+          <t-icon name="qrcode" class="text-blue-600" size="40rpx" />
+        </view>
+        <text class="text-xs text-gray-700">会员码</text>
+      </view>
+      
+      <!-- 储值有礼 -->
+      <view class="flex flex-col items-center" bindtap="handleRecharge">
+        <view class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-2">
+          <t-icon name="gift" class="text-red-600" size="40rpx" />
+        </view>
+        <text class="text-xs text-gray-700">储值有礼</text>
+      </view>
+    </view>
+  </view>
+
   <!-- 轮播图 -->
   <view class="swiper-box p-4 my-1 py-4">
-    <t-swiper style="--td-swiper-radius:3px;--td-swiper-nav-dot-size:17rpx;--td-swiper-nav-dot-color:#A9A9A9;--td-swiper-nav-dot-active-color:#808080;" height="130" autoplay interval="{{interval}}" image-props="{{ { height:'120',width:'100%',mode:'aspectFit'} }}" navigation="{{navigation}}" paginationPosition="{{paginationPosition}}" list="{{swiperList}}">
+    <t-swiper style="--td-swiper-radius:3px;--td-swiper-nav-dot-size:17rpx;--td-swiper-nav-dot-color:#A9A9A9;--td-swiper-nav-dot-active-color:#808080;" height="130" autoplay="{{false}}" image-props="{{ { height:'120',width:'100%',mode:'aspectFit'} }}" navigation="{{navigation}}" paginationPosition="{{paginationPosition}}" list="{{swiperList}}">
     </t-swiper>
   </view>
 

@@ -48,10 +48,8 @@ Component({
    */
   methods: {
     handleTK(e) {
-      console.log('开始退款', this.data.arrayList, e.currentTarget.dataset.order);
       const id = e.currentTarget.dataset.order
       const item = this.data.arrayList.orders.find(o => o.id === id)
-      console.log(item);
       const orderId = item.orderId
       const amount = item.amount
       const openid = wx.getStorageSync('openid')
@@ -84,6 +82,16 @@ Component({
       const value = e.currentTarget.dataset.value;
       this.setData({
         currentSubTab: value
+      });
+    },
+
+    /**
+     * 查看订单详情
+     */
+    handleViewDetail(e) {
+      const orderId = e.currentTarget.dataset.order;
+      wx.navigateTo({
+        url: `/pages/order-detail/order-detail?orderId=${orderId}`
       });
     }
   },

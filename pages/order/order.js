@@ -456,12 +456,10 @@ Page({
     const {
       value
     } = e.detail;
-    console.log('aaaaa', this.data)
     this.setData({
       sideBarIndex: value,
       scrollTop: this.offsetTopList[value]
     });
-    console.log('bbbbb', this.data.scrollTop, this.offsetTopList[value])
 
   },
   onScroll(e) {

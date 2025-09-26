@@ -1,0 +1,2 @@
+/* pages/gift-card/gift-card.wxss */
+@import "../../style/tailwind.wxss";

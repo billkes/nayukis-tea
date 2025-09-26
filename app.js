@@ -14,7 +14,7 @@ App({
       wx.login({
         success: (res) => {
           //发送res.code 到后台换取 openId, sessionKey, unionId
-          console.log("onLaunch", res);
+          // onLaunch
           this.loginWithCode(res.code);
         }
       })
@@ -46,7 +46,7 @@ App({
       },
       fail: (err) => {
         //console.error(err);
-        console.error("【登录失败】");
+        // 【登录失败】
       },
       complete: () => {
 

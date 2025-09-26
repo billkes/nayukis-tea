@@ -34,9 +34,9 @@ Page({
       })
       wx.setStorageSync('orderlist', result)
     }).catch(err => {
-      console.error('接口请求异常')
+      // 接口请求异常
     }).finally(() => {
-      console.log('finally')
+      // finally
     })
   },
   /**
@@ -70,7 +70,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    // 页面显示时刷新订单列表
+    if (this.data.openid && this.data.token) {
+      this.fetchUserOrders();
+    }
   },
 
   /**

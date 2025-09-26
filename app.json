@@ -30,13 +30,18 @@
     "pages/secondPages/six/six",
     "pages/secondPages/five/five",
     "pages/cat/cat",
-    "pages/secondPages/userinfo/userinfo"
+    "pages/secondPages/userinfo/userinfo",
+    "pages/order-detail/order-detail",
+    "pages/sign-in/sign-in",
+    "pages/recharge/recharge",
+    "pages/gift-card/gift-card"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarBackgroundColor": "#fff",
     "backgroundTextStyle": "light",
-    "pageOrientation": "portrait"
+    "pageOrientation": "portrait",
+    "navigationBarTitleText": "奈雪的茶"
   },
   "tabBar": {
     "color": "#999999",

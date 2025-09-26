@@ -139,11 +139,23 @@ Page({
    * 去下单
    */
   handleOk(e) {
-    // console.log(e.currentTarget.dataset.current);
     const current = e.currentTarget.dataset.current
     const obj = this.data.list[current]
+    
+    // 存储选中的门店信息到本地存储
     wx.setStorageSync('okQhmd', obj)
-    wx.navigateBack()
+    
+    // 如果是从收藏页进入，直接跳转到点餐页面并携带门店信息
+    const pages = getCurrentPages()
+    const prevPage = pages[pages.length - 2]
+    if (prevPage && prevPage.route === 'pages/secondPages/phb/phb') {
+      wx.switchTab({
+        url: '/pages/order/order'
+      })
+    } else {
+      // 否则返回上一页
+      wx.navigateBack()
+    }
   },
 
   /**

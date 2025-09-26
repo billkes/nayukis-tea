@@ -1,0 +1,91 @@
+<!--pages/recharge/recharge.wxml-->
+<view class="w-screen h-screen bg-gray-100">
+  <!-- 顶部导航栏 -->
+  <view class="flex items-center justify-between px-5 py-3 bg-white border-b border-gray-200">
+    <view class="flex items-center" bindtap="handleBack">
+      <t-icon name="chevron-left" size="40rpx" class="text-gray-600" />
+      <text class="ml-2 text-base">返回</text>
+    </view>
+    <text class="text-lg font-bold">储值有礼</text>
+    <view class="w-16"></view>
+  </view>
+
+  <!-- 储值内容区域 -->
+  <view class="px-5 py-5">
+    <!-- 标题 -->
+    <view class="text-center mb-6">
+      <text class="text-2xl font-bold text-gray-800">储值有礼</text>
+      <view class="mt-2 text-gray-500">
+        <text>储值即享优惠，多充多送</text>
+      </view>
+    </view>
+
+    <!-- 储值卡片列表 -->
+    <view class="space-y-4">
+      <view wx:for="{{rechargeCards}}" wx:key="*this" 
+            class="bg-white rounded-lg shadow-md overflow-hidden {{item.popular ? 'ring-2 ring-yellow-400' : ''}}"
+            bindtap="handleSelectCard"
+            data-amount="{{item.amount}}">
+        
+        <!-- 热门标签 -->
+        <view wx:if="{{item.popular}}" class="bg-yellow-400 text-white text-xs px-3 py-1 inline-block rounded-br-lg">
+          最受欢迎
+        </view>
+        
+        <!-- 卡片内容 -->
+        <view class="p-6">
+          <view class="flex justify-between items-center mb-4">
+            <view>
+              <text class="text-3xl font-bold text-gray-800">¥{{item.amount}}</text>
+              <view class="mt-1">
+                <text class="text-sm text-gray-500">储值金额</text>
+              </view>
+            </view>
+            <view class="text-right">
+              <text class="text-xl font-bold text-red-500">+¥{{item.bonus}}</text>
+              <view class="mt-1">
+                <text class="text-sm text-gray-500">{{item.description}}</text>
+              </view>
+            </view>
+          </view>
+          
+          <!-- 实际到账金额 -->
+          <view class="bg-gray-50 rounded-lg p-3 text-center">
+            <text class="text-sm text-gray-600">实际到账 </text>
+            <text class="text-lg font-bold text-green-600">¥{{item.amount + item.bonus}}</text>
+          </view>
+        </view>
+        
+        <!-- 底部按钮 -->
+        <view class="bg-gray-50 px-6 py-3 border-t border-gray-100">
+          <view class="w-full bg-yellow-500 text-white text-center py-2 rounded-lg font-medium">
+            立即储值
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 储值说明 -->
+    <view class="mt-8 bg-white rounded-lg p-4">
+      <text class="text-base font-bold mb-3 block">储值说明</text>
+      <view class="space-y-2">
+        <view class="flex items-start">
+          <view class="w-2 h-2 bg-yellow-400 rounded-full mr-2 mt-2"></view>
+          <text class="text-sm text-gray-600">储值金额将实时到账，可用于奈雪的茶全国门店消费</text>
+        </view>
+        <view class="flex items-start">
+          <view class="w-2 h-2 bg-yellow-400 rounded-full mr-2 mt-2"></view>
+          <text class="text-sm text-gray-600">赠送金额与储值金额同时到账，无使用门槛</text>
+        </view>
+        <view class="flex items-start">
+          <view class="w-2 h-2 bg-yellow-400 rounded-full mr-2 mt-2"></view>
+          <text class="text-sm text-gray-600">储值余额不支持提现，请在有效期内使用</text>
+        </view>
+        <view class="flex items-start">
+          <view class="w-2 h-2 bg-yellow-400 rounded-full mr-2 mt-2"></view>
+          <text class="text-sm text-gray-600">如有疑问，请联系客服咨询</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
