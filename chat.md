@@ -8,5 +8,6 @@
 
 --- 
 
-- 具体位置：pages/secondPages/menu/menu
-- 具体需求：修复页面，需给页面添加一个返回按钮
+- 具体位置：pages/secondPages/menu/menu.wxml
+- 具体需求：根据数据渲染页面，美化页面
+- 具体要求：借鉴其他页面的风格
