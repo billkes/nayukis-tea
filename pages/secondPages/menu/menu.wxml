@@ -1,5 +1,13 @@
 <!-- pages/drinkDetail/drinkDetail.wxml -->
 <view class="container">
+  <!-- 返回按钮和标题 -->
+  <view class="flex items-center py-4 px-4 bg-white shadow-md">
+    <button class="w-10 h-10 flex items-center justify-center" bindtap="navigateBack">
+      <image class="w-6 h-6" src="/static/icons/back.png"></image>
+    </button>
+    <text class="text-xl font-bold ml-4">{{drinkInfo.name}}</text>
+  </view>
+
   <!-- 饮品图片 -->
   <view class="drink-image">
     <image src="{{drinkInfo.image || 'https://picsum.photos/400/200?food=default'}}" mode="aspectFill"></image>
