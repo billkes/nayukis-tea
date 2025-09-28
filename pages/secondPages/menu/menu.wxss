@@ -1,1 +1,6 @@
 @import "../../../style/tailwind.wxss"; 
+
+.capsule-placeholder {
+  /* 胶囊按钮占位，确保标题不会被遮挡 */
+  width: 87px; /* 胶囊按钮大约宽度 */
+}

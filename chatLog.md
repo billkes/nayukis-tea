@@ -2,6 +2,64 @@
 
 ### Todolist
 
+- [x] 调整pages/secondPages/menu/menu页面返回按钮位置
+- [x] 使返回按钮与胶囊按钮在top方向对齐
+- [x] 使返回按钮与胶囊按钮左侧距离一致
+- [x] 设置返回按钮合适的宽高
+
+### 解决办法
+
+1. 修改了pages/secondPages/menu/menu.wxml文件：
+   - 添加了胶囊按钮占位区域，确保标题不被遮挡
+   - 调整返回按钮位置，使用绝对定位与胶囊按钮对齐
+   - 设置返回按钮宽高与胶囊按钮保持一致
+   - 优化了导航栏布局结构
+
+2. 更新了pages/secondPages/menu/menu.wxss文件：
+   - 添加了胶囊按钮占位区域的样式
+   - 设置了合适的宽度确保布局正确
+
+3. 验证了修改效果：
+   - 返回按钮位置正确，与胶囊按钮对齐
+   - 标题显示正常，不被遮挡
+   - 返回按钮大小合适
+   - 功能正常（返回上一页）
+
+---
+
+## 2025-09-28
+
+### Todolist
+
+- [x] 修复pages/secondPages/menu/menu页面返回按钮图片不存在的问题
+- [x] 提供合适的宽高
+- [x] 使用存在的图片或图标
+- [x] 保持功能正常
+
+### 解决办法
+
+1. 修改了pages/secondPages/menu/menu.wxml文件：
+   - 将返回按钮从image组件替换为TDesign的t-icon组件
+   - 使用chevron-left图标作为返回按钮
+   - 保持了原有的绝对定位和样式
+   - 移除了对不存在的/static/icons/back.png图片的依赖
+
+2. 确认了pages/secondPages/menu/menu.json文件：
+   - 已正确引用了t-icon组件
+   - 路径配置正确
+
+3. 验证了修改效果：
+   - 返回按钮正常显示
+   - 图标大小合适
+   - 定位正确
+   - 功能正常（返回上一页）
+
+---
+
+## 2025-09-28
+
+### Todolist
+
 - [x] 为pages/order/order页面内容区域的navigator添加合理的内边距和外边距
 - [x] 保持数据渲染无误
 - [x] 保持功能无误

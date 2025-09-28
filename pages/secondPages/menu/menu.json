@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "t-icon": "../../../miniprogram_npm/tdesign-miniprogram/icon/icon"
+  },
   "navigationBarTitleText": "商品详情",
   "navigationBarBackgroundColor": "#ffffff",
   "navigationBarTextStyle": "black",
