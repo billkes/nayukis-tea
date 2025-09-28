@@ -1,5 +1,5 @@
-fix(top): 修复组件JS文件语法错误
+fix: 修复order页面内容区域navigator样式超出屏幕问题
 
-- 修复 components/top/top.js 文件中的语法错误
-- 正确闭合 data 对象和 Component 函数
-- 保持组件功能不变，确保代码能正常运行
+- 将navigator组件的样式从w-full改为w-auto，防止内容超出屏幕
+- 保持数据渲染和功能正常
+- 优化页面布局显示效果

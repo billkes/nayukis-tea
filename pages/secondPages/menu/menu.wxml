@@ -1,15 +1,13 @@
 <!-- pages/drinkDetail/drinkDetail.wxml -->
 <view class="container bg-gray-50 min-h-screen">
   <!-- 返回按钮和标题 -->
-  <view class="flex items-center py-4 px-4 bg-white shadow-sm fixed top-0 left-0 right-0 z-10">
-    <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100" bindtap="navigateBack">
-      <image class="w-6 h-6" src="/static/icons/back.png"></image>
-    </button>
-    <text class="text-xl font-bold ml-4 truncate max-w-60">{{drinkInfo.name}}</text>
+  <view class="bg-white shadow-sm fixed top-0 left-0 right-0 z-10" style="height: {{navInfo.navBarHeight}}px; padding-top: {{navInfo.statusBarHeight}}px;">
+    <image class="w-6 h-6 absolute" style="left: 16px; top: {{navInfo.menuButtonTop - navInfo.statusBarHeight}}px;" bindtap="navigateBack" src="/static/icons/back.png"></image>
+    <text class="text-xl font-bold absolute left-1/2 transform -translate-x-1/2 truncate max-w-60" style="line-height: {{navInfo.navBarHeight}}px;">{{drinkInfo.name}}</text>
   </view>
 
   <!-- 饮品图片 -->
-  <view class="drink-image pt-16">
+  <view class="drink-image" style="padding-top: {{navInfo.navBarHeight}}px;">
     <image class="w-full h-64 object-cover" src="{{drinkInfo.image || 'https://picsum.photos/400/200?food=default'}}" mode="aspectFill"></image>
   </view>
 

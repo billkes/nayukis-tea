@@ -8,11 +8,6 @@
 
 --- 
 
-```text
-[] Error: file: components/top/top.js
- unknown: Unexpected token, expected "," (104:1)
-
-  102 |     });  103 |   }> 104 | })      |  ^Error: file: components/top/top.js unknown: Unexpected token, expected "," (104:1)  102 |     });  103 |   }> 104 | })      |  ^    at enhance (D:\Program Files (x86)\Tencent\微信web开发者工具\code\package.nw\js\common\miniprogram-builder\modules\corecompiler\summer\plugins\enhance.js:1:1579)    at doTransform (D:\Program Files (x86)\Tencent\微信web开发者工具\code\package.nw\js\common\miniprogram-builder\modules\corecompiler\summer\plugins\enhance.js:1:1827)    at Object.runSummerPluginHook (D:\Program Files (x86)\Tencent\微信web开发者工具\code\package.nw\js\common\miniprogram-builder\modules\corecompiler\summer\worker.js:2:1239)(env: Windows,mp,1.06.2412050; lib: 3.8.12)
-```
-
-- 具体需求：修复代码错误
+- 具体位置：pages/order/order
+- 具体需求：修复内容区域的navigator，样式效果超出屏幕
+- 具体要求：数据渲染无误，功能无误

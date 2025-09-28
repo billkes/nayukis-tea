@@ -16,7 +16,7 @@
     <view wx:for="{{categories}}" wx:key="index" class="section pt-6" data-index="{{index}}">
       <view class="title pl-6 mb-0 text-base font-bold pb-2 border-b border-gray-100">{{item.title}}</view>
       <block wx:for="{{item.items}}" wx:for-item="itm" wx:key="index">
-        <navigator url="/pages/secondPages/menu/menu?id={{itm.id}}&name={{itm.name}}&image={{itm.image}}&aa1={{itm.aa1}}&aa2={{itm.aa2}}&text={{itm.text}}" open-type="navigate" class="flex ml-5 mt-5 mb-8 w-full">
+        <navigator url="/pages/secondPages/menu/menu?id={{itm.id}}&name={{itm.name}}&image={{itm.image}}&aa1={{itm.aa1}}&aa2={{itm.aa2}}&text={{itm.text}}" open-type="navigate" class="flex ml-5 mt-5 mb-8 w-auto">
           <image src="{{itm.image}}" class="w-48 h-48 rounded-lg"></image>
           <view class="flex-1 ml-6 relative">
             <view class="text-base font-bold pt-1">{{itm.name}}</view>

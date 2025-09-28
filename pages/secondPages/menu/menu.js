@@ -1,6 +1,9 @@
 // pages/drinkDetail/drinkDetail.js
+const navInfo = require('../../../utils/navInfo'); // 引入导航信息工具
+
 Page({
   data: {
+    navInfo: {}, // 导航信息
     drinkId: '', // 当前饮品ID
     drinkInfo: {}, // 当前饮品信息
     selectedSize: '500ml',
@@ -31,7 +34,9 @@ Page({
       return;
     }
 
+    // 设置导航信息
     this.setData({
+      navInfo: navInfo,
       drinkId
     });
     this.loadDrinkData(drinkId);
