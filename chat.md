@@ -8,6 +8,11 @@
 
 --- 
 
-- 具体位置：components/top/top.wxml
-- 具体需求：移除异常class渲染，保证页面美观
-- 具体要求：拼单图片在最左侧，搜索图标按钮在胶南左侧大约10px
+```text
+[] Error: file: components/top/top.js
+ unknown: Unexpected token, expected "," (104:1)
+
+  102 |     });  103 |   }> 104 | })      |  ^Error: file: components/top/top.js unknown: Unexpected token, expected "," (104:1)  102 |     });  103 |   }> 104 | })      |  ^    at enhance (D:\Program Files (x86)\Tencent\微信web开发者工具\code\package.nw\js\common\miniprogram-builder\modules\corecompiler\summer\plugins\enhance.js:1:1579)    at doTransform (D:\Program Files (x86)\Tencent\微信web开发者工具\code\package.nw\js\common\miniprogram-builder\modules\corecompiler\summer\plugins\enhance.js:1:1827)    at Object.runSummerPluginHook (D:\Program Files (x86)\Tencent\微信web开发者工具\code\package.nw\js\common\miniprogram-builder\modules\corecompiler\summer\worker.js:2:1239)(env: Windows,mp,1.06.2412050; lib: 3.8.12)
+```
+
+- 具体需求：修复代码错误

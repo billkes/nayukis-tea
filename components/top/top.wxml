@@ -1,8 +1,13 @@
 <view class="sticky top-0 z-10 bg-white pt-10 pb-5">
-  <view class="flex">
-    <image src="/static/images/pindan.jpg" mode="aspectFit" class="w-16 h-16 pl-2" bind:tap="handlePopShow"></image>
-    <text class="text-green-500 text-sm font-bold  py-3 ml-2" bind:tap="handlePopShow">拼单</text>
-    <view class="ml-50 pl-10">
+  <view class="flex items-center justify-between px-4">
+    <!-- 左侧：拼单按钮 -->
+    <view class="flex items-center" bind:tap="handlePopShow">
+      <image src="/static/images/pindan.jpg" mode="aspectFit" class="w-16 h-16"></image>
+      <text class="text-green-500 text-sm font-bold py-3 ml-2">拼单</text>
+    </view>
+    
+    <!-- 右侧：搜索按钮 -->
+    <view class="search-container" wx:if="{{menuButtonInfo}}" style="position: absolute; right: {{menuButtonInfo.width + 10}}px;">
       <t-button theme="default" size="extra-small" icon="search" shape="circle" aria-label="搜索" bindtap="navigateToPage"></t-button>
     </view>
   </view>

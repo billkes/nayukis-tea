@@ -8,6 +8,6 @@
 
 --- 
 
-- 具体位置：pages/secondPages/menu/menu
+- 具体位置：components/top/top.wxml
 - 具体需求：美化页面、优化页面
 - 具体要求：数据渲染无误，功能无误

@@ -1,4 +1,6 @@
 // components/top/top.js
+const navInfo = require('../../utils/navInfo.js');
+
 Component({
 
   /**
@@ -19,6 +21,8 @@ Component({
     visible: false,
     content: ['加入门店会员群,领18元新人礼', '限时饮品烘焙2件八折', '小程序下单满赠周边活动'],
     current: 0,
+    // 导航栏相关信息
+    menuButtonInfo: null,
   },
 
   /**
@@ -86,5 +90,16 @@ Component({
         isFixed
       });
     },
+  },
+
+  /**
+   * 组件生命周期函数 - 在组件实例进入页面节点树时执行
+   */
+  attached() {
+    // 获取胶囊按钮位置信息
+    const menuButtonInfo = wx.getMenuButtonBoundingClientRect();
+    this.setData({
+      menuButtonInfo
+    });
   }
 })
