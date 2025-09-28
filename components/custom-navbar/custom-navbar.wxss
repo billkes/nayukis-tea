@@ -1,6 +1,57 @@
-/* components/custom-navbar/custom-navbar.wxss */
-/* components/custom-navbar/custom-navbar.wxss */
-.custom-image {
-  height: 24px;
-  width: 87px;
+@import "../../style/tailwind.wxss";
+
+.custom-navbar {
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding-bottom: 10rpx;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  height: 44px; /* 标准导航栏高度 */
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.pindan-icon {
+  width: 64rpx;
+  height: 64rpx;
+  padding-left: 10rpx;
+}
+
+.pindan-text {
+  font-size: 24rpx;
+  font-weight: bold;
+  padding: 12rpx 0;
+  margin-left: 10rpx;
+}
+
+.center-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-button {
+  /* TDesign按钮样式已定义，这里可以添加额外样式 */
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.capsule-placeholder {
+  /* 胶囊按钮占位，确保右侧内容不会被遮挡 */
+  width: 80px; /* 胶囊按钮大约宽度 */
 }

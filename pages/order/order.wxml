@@ -1,12 +1,12 @@
 <!-- 自定义导航栏 -->
-<top id="top-node" okQhmd="{{okQhmd}}"></top>
+<custom-navbar id="top-node" okQhmd="{{okQhmd}}"></custom-navbar>
 
 <!-- 横向滚动视图：图片列表 -->
 <photo id="photo-node" bind:handleGotoType='handleGotoType'></photo>
 
 <view id='main-node' class="bg-white border-0 border-t border-gray-200 border-solid box-border flex h-screen">
   <!-- 侧边栏 -->
-  <scroll-view scroll-y="true" class="w-25 h-screen">
+  <scroll-view scroll-y="true" class="w-25 h-screen bg-gray-50">
     <t-side-bar style="{{barStyle}}" value="{{sideBarIndex}}" bind:change="onSideBarChange">
       <t-side-bar-item wx:for="{{categories}}" wx:key="index" value="{{index}}" label="{{item.label}}" badge-props="{{item.badgeProps}}" />
     </t-side-bar>
@@ -14,25 +14,25 @@
   <!-- 内容区域 -->
   <scroll-view class="scroll-view flex-1 h-screen" scroll-y enhanced show-scrollbar="{{false}}" scroll-with-animation scroll-top="{{scrollTop}}" bind:scroll="onScroll">
     <view wx:for="{{categories}}" wx:key="index" class="section pt-6" data-index="{{index}}">
-      <view class="title pl-6 mb-0 text-base font-bold">{{item.title}}</view>
+      <view class="title pl-6 mb-0 text-base font-bold pb-2 border-b border-gray-100">{{item.title}}</view>
       <block wx:for="{{item.items}}" wx:for-item="itm" wx:key="index">
-        <navigator url="/pages/secondPages/menu/menu?id={{itm.id}}&name={{itm.name}}&image={{itm.image}}&aa1={{itm.aa1}}&aa2={{itm.aa2}}&text={{itm.text}}" open-type="navigate" class="flex ml-5 mt-5 mb-8">
-          <image src="{{itm.image}}" class="w-48 h-48"></image>
-          <view>
-            <view class="text-base font-bold ml-6 pt-1">{{itm.name}}</view>
+        <navigator url="/pages/secondPages/menu/menu?id={{itm.id}}&name={{itm.name}}&image={{itm.image}}&aa1={{itm.aa1}}&aa2={{itm.aa2}}&text={{itm.text}}" open-type="navigate" class="flex ml-5 mt-5 mb-8 w-full">
+          <image src="{{itm.image}}" class="w-48 h-48 rounded-lg"></image>
+          <view class="flex-1 ml-6 relative">
+            <view class="text-base font-bold pt-1">{{itm.name}}</view>
 
-            <view class="flex items-center ">
-              <view class="ml-8 mt-3 bg-gray-200 text-gray-500 text-xs w-auto">{{itm.aa1}}</view>
-              <view class="text-xs flex mt-2 bg-gray-200 text-gray-500 ml-2 w-auto">{{itm.aa2}}</view>
+            <view class="flex items-center flex-wrap mt-3">
+              <view class="bg-gray-200 text-gray-500 text-xs px-2 py-1 rounded mr-2 mb-2">{{itm.aa1}}</view>
+              <view class="text-xs flex bg-gray-200 text-gray-500 px-2 py-1 rounded mr-2 mb-2">{{itm.aa2}}</view>
             </view>
 
-            <view class="ml-6 pt-1 text-xs mt-1">{{itm.text}}</view>
+            <view class="pt-1 text-xs mt-1 text-gray-600">{{itm.text}}</view>
 
-            <view class="flex">
-              <view class="text-xs font-bold mt-10 ml-5">￥</view>
-              <view class=" text-base font-bold mt-8 ml-0">{{itm.price}}</view>
-              <view class="text-xs font-bold mt-10 ml-1 text-gray-500">起</view>
-              <view bind:tap="handleGoto" data-uid="{{itm.id}}" class="text-base w-12 h-10 mt-8 ml-45 text-center bg-green-45cd00 text-white rounded-50" style="position: absolute; right: 10px;">+</view>
+            <view class="flex items-center mt-10">
+              <view class="text-xs font-bold">￥</view>
+              <view class="text-base font-bold ml-1">{{itm.price}}</view>
+              <view class="text-xs font-bold ml-1 text-gray-500">起</view>
+              <view bind:tap="handleGoto" data-uid="{{itm.id}}" class="text-base w-12 h-10 text-center bg-green-45cd00 text-white rounded-50 absolute right-0">+</view>
             </view>
           </view>
         </navigator>

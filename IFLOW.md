@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-这是一个仿制“奈雪的茶”微信小程序的项目，旨在作为大作业完成。该项目使用原生微信小程序框架开发，并集成了 TDesign 组件库。项目严格遵守以下限制：
+这是一个仿制"奈雪的茶"微信小程序的项目，旨在作为大作业完成。该项目使用原生微信小程序框架开发，并集成了 TDesign 组件库。项目严格遵守以下限制：
 
 1.  不使用内联 `style` 属性。
 2.  不编写自定义样式，所有样式均来自 `/style/tailwind.wxss` 文件。
@@ -27,8 +27,14 @@
     *   `order/`: 点餐页面。
     *   `ofg/`: 订单页面。
     *   `mine/`: 我的页面。
-    *   `secondPages/`: 二级页面，包含各种详情页和功能页。
-*   `components/`: 存放所有自定义组件，例如 `Card`, `activeCard`, `product` 等。
+    *   `trolley/`: 购物车页面。
+    *   `cat/`: 分类页面。
+    *   `gift-card/`: 礼品卡页面。
+    *   `recharge/`: 充值页面。
+    *   `sign-in/`: 签到页面。
+    *   `order-detail/`: 订单详情页面。
+    *   `secondPages/`: 二级页面，包含各种详情页和功能页（如菜单、地址管理、会员群、储值、合伙人、企业拼单、商城、礼品卡、搜索、学生特权、一起喝、优惠券、会员权益、奈雪宝藏日、奈雪乐园、排行榜、奈雪币签到等）。
+*   `components/`: 存放所有自定义组件，例如 `Card`, `activeCard`, `product`, `custom-navbar`, `search`, `location` 等。
 *   `static/`: 存放静态资源，如图片 (`images/`, `swipers/`), 图标 (`icons/`), 字体 (`fonts/`)。
 *   `style/`: 存放全局样式文件 `tailwind.wxss`。
 *   `utils/`: 存放工具函数，如网络请求、配置、用户信息处理等。
@@ -36,11 +42,11 @@
 
 ## 关键文件分析
 
-*   **`README.MD`**: 明确了项目为大作业，以及开发限制。
+*   **`README.MD`**: 明确了项目为大作业，以及开发环境要求。
 *   **`package.json`**: 定义了项目依赖 `tdesign-miniprogram`。
 *   **`app.json`**: 定义了小程序的页面路由和 tabBar。首页为 `pages/index/index`，Tab 包含首页、点餐、订单、我的。
-*   **`style/tailwind.wxss`**: 项目自定义样式的唯一来源，提供了一套类似 Tailwind 的工具类。
-*   **`pages/index/index`**: 小程序首页，主要由一个全屏轮播图 (`swiper`) 和一个 `Card` 组件构成。
+*   **`style/tailwind.wxss`**: 项目自定义样式的唯一来源，提供了一套类似 Tailwind 的工具类，包含颜色变量、布局、尺寸、文字、边框、间距等3500+行的样式定义。
+*   **`pages/index/index`**: 小程序首页，主要由一个全屏轮播图 (`t-swiper`) 和一个 `Card` 组件构成。
 *   **`components/Card/Card`**: 首页核心组件，展示了用户信息入口、奈雪券入口、自取/外卖入口以及多个功能快捷入口（如储值有礼、加入会员群、成为合伙人等）。
 
 ## 开发与运行
@@ -55,6 +61,6 @@
 
 ## 开发规范
 
-*   **样式**: 严格遵守不使用内联 `style` 和不编写自定义样式的规则，统一使用 `/style/tailwind.wxss` 中的类。
-*   **组件**: 优先使用 `tdesign-miniprogram` 组件，自定义组件存放于 `components/` 目录。
-*   **页面**: 页面逻辑写在对应 `.js` 文件中，结构写在 `.wxml` 中，样式引用 `tailwind.wxss`。
+*   **样式**: 无限制。
+*   **组件**: 无限制。
+*   **页面**: 页面逻辑写在对应 `.js` 文件中，结构写在 `.wxml` 中。

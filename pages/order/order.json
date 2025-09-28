@@ -3,12 +3,11 @@
     "t-icon": "../../miniprogram_npm/tdesign-miniprogram/icon/icon",
     "t-side-bar": "../../miniprogram_npm/tdesign-miniprogram/side-bar/side-bar",
     "t-side-bar-item": "../../miniprogram_npm/tdesign-miniprogram/side-bar-item/side-bar-item",
-    "top":"../../components/top/top",
+    "custom-navbar": "../../components/custom-navbar/custom-navbar",
     "t-button": "../../miniprogram_npm/tdesign-miniprogram/button/button",
-    "location":"../../components/location/location",
-    "photo":"../../components/photo/photo",
-    "product-item":"../../components/product-item/product-item"
+    "location": "../../components/location/location",
+    "photo": "../../components/photo/photo",
+    "product-item": "../../components/product-item/product-item"
   },
-  
-  "navigationStyle":"custom"
+  "navigationStyle": "custom"
 }

@@ -1,0 +1,125 @@
+<view class="custom-navbar" style="padding-top: {{statusBarHeight}}px;">
+  <view class="navbar-content">
+    <!-- 胶囊按钮占位区域 -->
+    <view class="capsule-placeholder" style="height: {{menuButtonHeight}}px; margin-top: {{menuButtonTop - statusBarHeight}}px; margin-right: {{menuButtonRight}}px;"></view>
+    
+    <!-- 左侧拼单按钮 -->
+    <view class="left-section">
+      <image src="/static/images/pindan.jpg" mode="aspectFit" class="pindan-icon" bind:tap="handlePopShow"></image>
+      <text class="pindan-text text-green-500" bind:tap="handlePopShow">拼单</text>
+    </view>
+    
+    <!-- 中间搜索按钮 -->
+    <view class="center-section">
+      <t-button 
+        theme="default" 
+        size="extra-small" 
+        icon="search" 
+        shape="circle" 
+        aria-label="搜索" 
+        bindtap="navigateToPage"
+        class="search-button">
+      </t-button>
+    </view>
+    
+    <!-- 右侧占位，确保居中 -->
+    <view class="right-section">
+      <!-- 空白占位，与左侧宽度相等 -->
+    </view>
+  </view>
+  
+  <!-- 其他内容保持不变 -->
+  <view class="flex items-center justify-between px-4 mt-4">
+    <navigator url="/pages/secondPages/qhmd/qhmd" open-type="navigate">
+      <view class="flex items-center">
+        <t-icon name="shop-1" class="text-gray-500" size="32rpx" />
+        <text class="text-lg mx-3">{{okQhmd.name}}</text>
+        <t-icon name="chevron-right" class="text-gray-600" size="32rpx" />
+      </view>
+      <view class="flex items-center">
+        <t-icon name="location" class="text-gray-500" size="32rpx" />
+        <text class="mx-3 text-sm text-gray-500">距离您{{okQhmd.len}}km</text>
+      </view>
+    </navigator>
+
+    <navigator class="flex rounded-50 bg-gray-100" url="/pages/secondPages/address/address" open-type="navigate">
+      <view class="flex items-center justify-center px-6 py-2 h-10 bg-green-500 text-white rounded-50">
+        <text>自取</text>
+      </view>
+      <view class="flex items-center justify-center px-6 py-2 h-10 bg-gray-100 rounded-50">
+        <text>外卖</text>
+      </view>
+    </navigator>
+  </view>
+
+  <t-notice-bar visible="{{true}}" direction="vertical" interval="{{3000}}" content="{{content}}" prefixIcon="false" bind:click="click" suffixIcon="chevron-down" t-class-operation="{{operation}}" class="h-0 bg-gray-100 mt-4 text-xs items-center pl-0">
+    <view slot="prefix-icon" class="ml-3 text-xs w-8 h-8 bg-green-600 flex justify-center items-center">
+      <text class="text-white">减</text>
+    </view>
+  </t-notice-bar>
+
+  <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="bottom">
+    <view class="px-10 py-10">
+      <view class="px-5 py-5">
+        <view class="flex justify-between">
+          <view class="flex px-5 rounded-lg w-40 justify-center h-32 items-center border border-gray-500 {{current==0? 'border-green-500' : ''}} border-solid" bind:tap="handleToggleCurrent" data-current="0">
+            <image src="/static/icons/ziqu.png" class="w-12 mr-10" mode="widthFix" />
+            <text class="text-lg font-bold">自取</text>
+          </view>
+          <view class="flex px-5 rounded-lg w-40 justify-center h-32 items-center border border-gray-500 {{current==1? 'border-green-500' : ''}} border-solid" bind:tap="handleToggleCurrent" data-current="1">
+            <image src="/static/icons/waimai.png" class="w-12 mr-10" mode="widthFix" />
+            <text class="text-lg font-bold">外卖</text>
+          </view>
+        </view>
+        <view wx:if="{{current==0}}" class="mt-10">
+          <view class="text-base text-gray-500">
+            自取门店
+          </view>
+          <view class="mt-10 flex items-center">
+            <text>{{okQhmd.name}}</text>
+            <test class="ml-5 bg-green-500 text-white text-xs">可外送</test>
+          </view>
+          <view class="text-xs mt-5 text-gray-500">
+            距离{{okQhmd.len}}km
+          </view>
+          <view class="flex mt-5">
+            <t-icon name="location" class="text-gray-500" size="32rpx" />
+            <text class="ml-5 flex-1 text-xs">地址</text>
+          </view>
+          <view class="flex mt-5">
+            <t-icon name="time" class="text-gray-500" size="32rpx" />
+            <text class="ml-5 flex-1 text-xs">营业时间: 1000000</text>
+          </view>
+          <view class="flex items-center py-10 justify-center">
+            <navigator url="/pages/secondPages/qhmd/qhmd" open-type="navigate" class="flex items-center">
+              <text class="text-base text-gray-500">切换门店</text>
+              <t-icon name="chevron-right" class="text-gray-500" size="32rpx" />
+            </navigator>
+          </view>
+          <view class="flex items-center justify-between">
+            <view class="w-40 px-5 h-16 flex items-center justify-center bg-gray-200 rounded-50">
+              <text class="text-white text-xl">我再想想</text>
+            </view>
+            <view class="w-40 px-5 h-16 flex items-center justify-center bg-green-500 rounded-50">
+              <text class="text-white text-xl">发起拼单</text>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{current==1}}" class="mt-10">
+          <view class="text-base text-gray-500">
+            配送地址
+          </view>
+          <view class="mt-10 flex justify-center items-center">
+            <text>你还未添加任何地址</text>
+          </view>
+          <view class="flex items-center py-10 justify-center">
+            <view class="flex items-center">
+              <text class="text-base text-gray-500">切换地址</text>
+              <t-icon name="chevron-right" class="text-gray-500" size="32rpx" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </t-popup>
+</view>
