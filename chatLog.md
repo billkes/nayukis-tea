@@ -2,6 +2,39 @@
 
 ### Todolist
 
+- [x] 修复pages/secondPages/menu/menu页面返回按钮样式和定位问题
+- [x] 调整pages/order/order页面按钮位置和间距
+- [x] 优化页面布局和视觉效果
+
+### 解决办法
+
+1. 修改了pages/secondPages/menu/menu.wxml文件：
+   - 将返回按钮从image组件替换为TDesign的t-icon组件
+   - 使用chevron-left图标作为返回按钮
+   - 调整了导航栏布局结构，将标题与返回按钮放在同一行
+   - 优化了饮品图片的显示方式，使用widthFix模式
+
+2. 更新了pages/secondPages/menu/menu.wxss文件：
+   - 添加了.menu-chevron-left样式，使用flex布局居中对齐图标和文字
+   - 设置了合适的字体大小和间距
+
+3. 调整了pages/order/order页面的样式：
+   - 为navigator组件添加了合适的内边距和外边距
+   - 优化了按钮的定位，确保与胶囊按钮对齐
+   - 防止内容区域超出屏幕宽度
+
+4. 验证了所有修改效果：
+   - 页面布局正常显示
+   - 数据渲染无误
+   - 功能正常（返回、跳转等）
+   - 视觉效果提升
+
+---
+
+## 2025-09-28
+
+### Todolist
+
 - [x] 修复pages/order/order页面顶部按钮位置错误
 - [x] 拼单按钮紧靠左侧，距离为胶囊按钮右侧距离
 - [x] 搜索按钮紧靠胶囊按钮左侧，保持约10px距离

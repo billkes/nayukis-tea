@@ -4,14 +4,16 @@
   <view class="bg-white shadow-sm fixed top-0 left-0 right-0 z-10" style="height: {{navInfo.navBarHeight}}px; padding-top: {{navInfo.statusBarHeight}}px;">
     <!-- 胶囊按钮占位区域 -->
     <view class="capsule-placeholder" style="position: absolute; right: 10px; height: {{navInfo.menuButtonHeight}}px; margin-top: {{navInfo.menuButtonTop - navInfo.statusBarHeight}}px;"></view>
-    
-    <t-icon name="chevron-left" class="absolute text-xl" style="left: 16px; top: {{navInfo.menuButtonTop - navInfo.statusBarHeight}}px; width: {{navInfo.menuButtonHeight}}px; height: {{navInfo.menuButtonHeight}}px; line-height: {{navInfo.menuButtonHeight}}px; text-align: center;" bindtap="navigateBack"></t-icon>
-    <text class="text-xl font-bold absolute left-1/2 transform -translate-x-1/2 truncate max-w-60" style="line-height: {{navInfo.navBarHeight}}px;">{{drinkInfo.name}}</text>
+
+      <view class="absolute text-xl menu-chevron-left " style="left: 6px; top: {{navInfo.statusBarHeight + navInfo.menuButtonTop - navInfo.statusBarHeight}}px;  height: {{navInfo.menuButtonHeight}}px; line-height: {{navInfo.menuButtonHeight}}px; text-align: center;" bindtap="navigateBack">
+        <t-icon name="chevron-left" ></t-icon>
+        <text >{{drinkInfo.name}}</text>
+      </view>
   </view>
 
   <!-- 饮品图片 -->
   <view class="drink-image" style="padding-top: {{navInfo.navBarHeight}}px;">
-    <image class="w-full h-64 object-cover" src="{{drinkInfo.image || 'https://picsum.photos/400/200?food=default'}}" mode="aspectFill"></image>
+    <image class="w-full w-full" src="{{drinkInfo.image || 'https://picsum.photos/400/200?food=default'}}" mode="widthFix"></image>
   </view>
 
   <!-- 饮品名称和描述 -->

@@ -4,3 +4,14 @@
   /* 胶囊按钮占位，确保标题不会被遮挡 */
   width: 87px; /* 胶囊按钮大约宽度 */
 }
+
+.menu-chevron-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-chevron-left text {
+    font-size: 16px;
+    margin-left: 5px;
+}
