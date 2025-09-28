@@ -64,10 +64,13 @@ Page({
   // 生成配置哈希值（根据实际配置项调整）
   generateSelectionHash() {
     return [
-      this.data.selectedTemp,
-      this.data.selectedsweet,
-      this.data.selectedSize,
-      this.data.selectedTopping
+      this.data.selectedTemp || '',
+      this.data.selectedsweet || '',
+      this.data.selectedSize || '',
+      this.data.selectedTopping || '',
+      this.data.selectedTea || '',
+      this.data.selectedtheme || '',
+      this.data.selectedtaste || ''
     ].join('-');
   },
   loadDrinkData: function (drinkId) {
@@ -1529,7 +1532,7 @@ Page({
   // 选择杯型
   selectSize: function (e) {
     const size = e.currentTarget.dataset.size;
-    const price = parseInt(e.currentTarget.dataset.price);
+    const price = parseInt(e.currentTarget.dataset.price) || 0;
     this.setData({
       selectedSize: size,
       sizePrice: price
@@ -1581,7 +1584,7 @@ Page({
   // 选择加料
   selectTopping: function (e) {
     const topping = e.currentTarget.dataset.topping;
-    const price = parseInt(e.currentTarget.dataset.price);
+    const price = parseInt(e.currentTarget.dataset.price) || 0;
 
     // 如果当前已选该加料，则取消选择；否则选择该加料
     const isSelected = this.data.selectedTopping === topping;
@@ -1595,7 +1598,7 @@ Page({
   },
 
   calculateTotal: function () {
-    const total = this.data.basePrice +
+    const total = (this.data.basePrice || 0) +
       (this.data.sizePrice || 0) +
       (this.data.toppingPrice || 0);
     this.setData({
@@ -1607,7 +1610,6 @@ Page({
   updateSelection: function () {
     let selection = '';
 
-
     // 添加温度（如果有配置）
     if (this.data.drinkInfo.tempOptions && this.data.drinkInfo.tempOptions.length > 0) {
       const tempOption = this.data.drinkInfo.tempOptions.find(
@@ -1618,7 +1620,6 @@ Page({
       }
     }
 
-
     // 添加甜度（如果有配置）
     if (this.data.drinkInfo.sweetOptions && this.data.drinkInfo.sweetOptions.length > 0) {
       const sweetOption = this.data.drinkInfo.sweetOptions.find(
@@ -1628,6 +1629,7 @@ Page({
         selection += `${sweetOption.text}/`;
       }
     }
+
     // 添加甜度信息（如果有）
     if (this.data.drinkInfo.sweetness) {
       selection += `${this.data.drinkInfo.sweetness}/`;
@@ -1664,18 +1666,15 @@ Page({
       }
     }
 
-
     // 添加口味（如果有配置）
     if (this.data.drinkInfo.tasteOptions && this.data.drinkInfo.tasteOptions.length > 0) {
       const tasteOption = this.data.drinkInfo.tasteOptions.find(
         option => option.value === this.data.selectedtaste
       );
       if (tasteOption) {
-        selection += `${tasteOption.text}`;
+        selection += `${tasteOption.text}/`;
       }
     }
-
-
 
     // 添加加料（如果有选择）
     if (this.data.selectedTopping && this.data.drinkInfo.toppingOptions) {
@@ -1683,7 +1682,7 @@ Page({
         option => option.value === this.data.selectedTopping
       );
       if (toppingOption) {
-        selection += `/${toppingOption.text}`;
+        selection += `加${toppingOption.text}/`;
       }
     }
 
@@ -1695,7 +1694,6 @@ Page({
     this.setData({
       currentSelection: selection
     });
-
   },
 
   // 减少商品数量（直接修改购物车）
@@ -1757,6 +1755,9 @@ Page({
 
 
   addToCart() {
+    // 确保价格计算正确
+    this.calculateTotal();
+    
     const cartItems = wx.getStorageSync('shoppingCart') || [];
     const selectionHash = this.generateSelectionHash();
 
@@ -1769,8 +1770,7 @@ Page({
       selectionHash: selectionHash,
       price: this.data.totalPrice,
       quantity: this.data.quantity,
-      totalPrice: this.data.totalPrice * this.data.quantity,
-      // 其他配置...
+      totalPrice: this.data.totalPrice * this.data.quantity
     };
 
     // 查找相同配置的商品
@@ -1780,17 +1780,26 @@ Page({
 
     if (index !== -1) {
       // 已存在，更新数量和总价
-      cartItems[index].quantity = cartItem.quantity;
-      cartItems[index].totalPrice = cartItem.totalPrice;
+      cartItems[index].quantity += cartItem.quantity;
+      cartItems[index].totalPrice = cartItems[index].price * cartItems[index].quantity;
     } else {
       // 不存在，添加新商品
       cartItems.push(cartItem);
     }
 
     wx.setStorageSync('shoppingCart', cartItems);
-    wx.navigateTo({
-      url: '/pages/trolley/trolley',
-    })
+    
+    wx.showToast({
+      title: '已加入购物车',
+      icon: 'success'
+    });
+    
+    // 延迟跳转到购物车页面
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '/pages/trolley/trolley',
+      })
+    }, 1000);
   },
 
   // 返回上一页

@@ -8,5 +8,6 @@
 
 --- 
 
-- 具体位置：pages/order/order
+- 具体位置：components/top/top.wxml
 - 具体需求：移除异常class渲染，保证页面美观
+- 具体要求：拼单图片在最左侧，搜索图标按钮在胶南左侧大约10px
