@@ -1,5 +1,7 @@
-fix: 修复order页面内容区域navigator样式超出屏幕问题
+feat: 为order页面内容区域navigator添加合理内边距和外边距
 
-- 将navigator组件的样式从w-full改为w-auto，防止内容超出屏幕
+- 为navigator组件添加m-5外边距和p-4内边距
+- 添加bg-white背景色和rounded-lg圆角样式
+- 添加shadow-sm阴影效果提升视觉层次
 - 保持数据渲染和功能正常
 - 优化页面布局显示效果
