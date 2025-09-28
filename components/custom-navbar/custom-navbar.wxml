@@ -1,8 +1,6 @@
 <view class="custom-navbar" style="padding-top: {{statusBarHeight}}px;">
   <view class="navbar-content">
-    <!-- 胶囊按钮占位区域 -->
-    <view class="capsule-placeholder" style="height: {{menuButtonHeight}}px; margin-top: {{menuButtonTop - statusBarHeight}}px; margin-right: {{menuButtonRight}}px;"></view>
-    
+
     <!-- 左侧拼单按钮 -->
     <view class="left-section">
       <image src="/static/images/pindan.jpg" mode="aspectFit" class="pindan-icon" bind:tap="handlePopShow"></image>
@@ -22,10 +20,9 @@
       </t-button>
     </view>
     
-    <!-- 右侧占位，确保居中 -->
-    <view class="right-section">
-      <!-- 空白占位，与左侧宽度相等 -->
-    </view>
+     <!-- 胶囊按钮占位区域 -->
+    <view class="capsule-placeholder" style="height: {{menuButtonHeight}}px; margin-top: {{menuButtonTop - statusBarHeight}}px; margin-right: {{menuButtonRight}}px;"></view>
+
   </view>
   
   <!-- 其他内容保持不变 -->

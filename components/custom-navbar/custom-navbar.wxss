@@ -25,7 +25,6 @@
 .pindan-icon {
   width: 64rpx;
   height: 64rpx;
-  padding-left: 10rpx;
 }
 
 .pindan-text {
@@ -38,11 +37,12 @@
 .center-section {
   flex: 1;
   display: flex;
-  justify-content: center;
+    flex-direction: row-reverse;
 }
 
 .search-button {
   /* TDesign按钮样式已定义，这里可以添加额外样式 */
+    margin: 0;
 }
 
 .right-section {

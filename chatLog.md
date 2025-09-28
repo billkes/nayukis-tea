@@ -2,6 +2,29 @@
 
 ### Todolist
 
+- [x] 修复pages/order/order页面顶部按钮位置错误
+- [x] 拼单按钮紧靠左侧，距离为胶囊按钮右侧距离
+- [x] 搜索按钮紧靠胶囊按钮左侧，保持约10px距离
+
+### 解决办法
+
+1. 修改了components/custom-navbar/custom-navbar.wxml文件：
+   - 为拼单按钮添加了margin-left样式，值为menuButtonRight（胶囊按钮右侧距离）
+   - 为搜索按钮添加了margin-right样式，值为menuButtonRight + 5px，确保与胶囊按钮保持约10px距离
+   - 保持了原有的胶囊按钮占位区域和布局结构
+
+2. 验证了修改效果：
+   - 拼单按钮位置正确，紧靠左侧
+   - 搜索按钮位置正确，紧靠胶囊按钮左侧
+   - 各按钮间距合理，符合设计要求
+   - 功能正常（拼单弹窗、搜索跳转等）
+
+---
+
+## 2025-09-28
+
+### Todolist
+
 - [x] 调整pages/secondPages/menu/menu页面返回按钮位置
 - [x] 使返回按钮与胶囊按钮在top方向对齐
 - [x] 使返回按钮与胶囊按钮左侧距离一致
