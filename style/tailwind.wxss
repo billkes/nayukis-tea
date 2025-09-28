@@ -645,6 +645,10 @@ page {
   border-radius: 8rpx;
 }
 
+.rounded-full {
+  border-radius: 9999rpx;
+}
+
 .rounded-md {
   border-radius: 6rpx;
 }
@@ -832,6 +836,14 @@ page {
 
 .shadow-md {
   box-shadow: 0 8rpx 12rpx -2rpx rgba(0, 0, 0, 0.1), 0 4rpx 8rpx -4rpx rgba(0, 0, 0, 0.1);
+}
+
+.shadow-sm {
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.05);
+}
+
+.shadow-lg {
+  box-shadow: 0 20rpx 25rpx -5rpx rgba(0, 0, 0, 0.1), 0 10rpx 10rpx -5rpx rgba(0, 0, 0, 0.04);
 }
 
 .overflow-hidden {
