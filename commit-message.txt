@@ -1,4 +1,7 @@
-fix: 移除trolley页面对已删除qcsj组件的引用
+feat: 重命名导航栏图标文件夹并更新项目配置
 
-- 删除了pages/trolley/trolley.json中对qcsj组件的引用
-- 保持了页面其他功能的完整性
+- 将导航栏图标从 static/icons 移动到 static/navbar-icons
+- 更新 project.config.json 配置：
+  - 添加 minitest 文件夹到忽略列表
+  - 设置 testRoot 为 minitest/
+- 删除无用的 .DS_Store 文件
