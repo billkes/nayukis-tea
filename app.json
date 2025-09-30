@@ -52,26 +52,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "static/icons/index.png",
-        "selectedIconPath": "static/icons/selectedindex.png"
+        "iconPath": "static/navbar-icons/index.png",
+        "selectedIconPath": "static/navbar-icons/selectedindex.png"
       },
       {
         "pagePath": "pages/order/order",
         "text": "点餐",
-        "iconPath": "static/icons/order.png",
-        "selectedIconPath": "static/icons/selectedorder.png"
+        "iconPath": "static/navbar-icons/order.png",
+        "selectedIconPath": "static/navbar-icons/selectedorder.png"
       },
       {
         "pagePath": "pages/ofg/ofg",
         "text": "订单",
-        "iconPath": "static/icons/ofg.png",
-        "selectedIconPath": "static/icons/selectedofg.png"
+        "iconPath": "static/navbar-icons/ofg.png",
+        "selectedIconPath": "static/navbar-icons/selectedofg.png"
       },
       {
         "pagePath": "pages/mine/mine",
         "text": "我的",
-        "iconPath": "static/icons/mine.png",
-        "selectedIconPath": "static/icons/selectedmine.png"
+        "iconPath": "static/navbar-icons/mine.png",
+        "selectedIconPath": "static/navbar-icons/selectedmine.png"
       }
     ]
   },

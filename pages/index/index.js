@@ -1,6 +1,6 @@
 // index.js
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
-const imageCdn = '/static/swipers';
+const imageCdn = 'https://nayukis-tea.oss-cn-hangzhou.aliyuncs.com/dev/static/swipers';
 const swiperList = [
   `${imageCdn}/swiper01.jpg`,
   `${imageCdn}/swiper02.jpg`,
